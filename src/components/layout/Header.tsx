@@ -16,7 +16,6 @@ const navigation = [
 ];
 
 export default function Header() {
-  console.log('Header rendering');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -36,13 +35,14 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/90 backdrop-blur-md shadow-lg py-2'
-        : 'bg-transparent py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isScrolled
+        ? 'bg-primary-800/95 backdrop-blur-md shadow-lg py-2'
+        : 'bg-primary-900 py-4'
         }`}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-200 ${isScrolled ? 'h-16' : 'h-20'
+          }`}>
           {/* Logo */}
           <Link
             href="/"
@@ -51,8 +51,11 @@ export default function Header() {
           >
             {/* Firm Name with Integrated CA Logo */}
             <div className="flex items-center gap-4">
-              {/* Logo Icon */}
-              <div className="relative h-16 w-16 md:h-20 md:w-20 bg-white rounded-full p-1 overflow-hidden shadow-md flex-shrink-0">
+              {/* Logo Icon - transitions from white badge to outlined on scroll */}
+              <div className={`relative flex-shrink-0 rounded-full overflow-hidden transition-all duration-200 ${isScrolled
+                ? 'h-12 w-12 md:h-14 md:w-14 bg-white/10 backdrop-blur-sm p-0.5 ring-2 ring-white/30'
+                : 'h-16 w-16 md:h-20 md:w-20 bg-white p-1 shadow-md'
+                }`}>
                 <Image
                   src="/ca-logo-final.png"
                   alt="CA Logo"
@@ -65,13 +68,14 @@ export default function Header() {
               {/* Text Branding */}
               <div className="flex flex-col">
                 <span
-                  className={`font-serif text-2xl md:text-3xl font-bold leading-none tracking-tight transition-colors duration-300 ${isScrolled ? 'text-[#145886]' : 'text-white'
-                    }`}
+                  className="font-serif text-2xl md:text-3xl font-bold leading-none tracking-tight text-white transition-all duration-200"
                 >
                   M MANI & CO
                 </span>
                 <span
-                  className={`font-sans text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-primary-600' : 'text-white/80'
+                  className={`font-sans font-medium uppercase tracking-[0.2em] text-white/90 transition-all duration-200 ${isScrolled
+                    ? 'text-[0.6rem] md:text-[0.65rem] opacity-70'
+                    : 'text-[0.65rem] md:text-xs opacity-90'
                     }`}
                 >
                   Chartered Accountants
@@ -90,9 +94,7 @@ export default function Header() {
                   href={item.href}
                   className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-200 border-b-2 ${isActive
                     ? 'text-accent border-accent font-semibold'
-                    : isScrolled
-                      ? 'text-primary-800 border-transparent hover:text-accent hover:border-accent'
-                      : 'text-white/90 border-transparent hover:text-white hover:border-white'
+                    : 'text-white/90 border-transparent hover:text-white hover:border-accent'
                     }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -105,7 +107,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className={`md:hidden p-2 rounded-md transition-colors ${isScrolled ? 'text-primary-950 hover:bg-neutral-100' : 'text-white hover:bg-white/10'}`}
+            className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
