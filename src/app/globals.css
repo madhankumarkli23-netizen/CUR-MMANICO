@@ -102,3 +102,25 @@ button {
   transform: translateZ(0);
   will-change: transform, opacity;
 }
+
+/* iOS Color Space Fix - Force sRGB for consistent color rendering */
+@supports (color: color(display-p3 1 1 1)) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+      color-scheme: light;
+      -webkit-color-correction: sRGB;
+    }
+    
+    body {
+      color-rendering: optimizeQuality;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+/* Ensure institutional blue renders consistently across all devices */
+.bg-institutional-blue {
+  background-color: rgb(0, 73, 146) !important;
+  background-color: color(srgb 0 0.286 0.573) !important;
+}

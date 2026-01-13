@@ -8,10 +8,14 @@ const Hero = () => {
     return (
         <section className="relative h-screen w-full overflow-hidden">
             {/* Background Motion (BGM) */}
-            <div className="absolute inset-0 z-0 bg-[#004992]">
+            <div className="absolute inset-0 z-0" style={{ backgroundColor: 'rgb(0, 73, 146)' }}>
                 {/* Visual texture overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#004992] via-[#004992] to-accent/5 opacity-50" />
-                <div className="w-full h-full bg-[length:200%_200%] bg-gradient-to-br from-[#004992] via-[#004992] to-[#004992] animate-gradient-slow opacity-90" />
+                <div className="absolute inset-0 opacity-50" style={{
+                    background: 'linear-gradient(to bottom right, rgb(0, 73, 146), rgb(0, 73, 146), rgba(212, 175, 55, 0.05))'
+                }} />
+                <div className="w-full h-full bg-[length:200%_200%] animate-gradient-slow opacity-90" style={{
+                    background: 'linear-gradient(to bottom right, rgb(0, 73, 146), rgb(0, 73, 146), rgb(0, 73, 146))'
+                }} />
 
                 {/* Abstract animated shapes - iOS compatible */}
                 <div
