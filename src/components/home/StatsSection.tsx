@@ -14,15 +14,6 @@ const stats = [
     borderColor: 'border-primary-100',
   },
   {
-    icon: Award,
-    value: '15+',
-    label: 'Years in Practice',
-    sublabel: 'since establishment',
-    color: 'text-primary-700',
-    bgColor: 'bg-primary-50',
-    borderColor: 'border-primary-100',
-  },
-  {
     icon: Users,
     value: '50+',
     label: 'Active Client Base',
@@ -33,9 +24,9 @@ const stats = [
   },
   {
     icon: Shield,
-    value: 'Focus',
-    label: 'Regulatory Compliance',
-    sublabel: 'adherence to standards',
+    value: 'ICAI',
+    label: 'Registered Practice',
+    sublabel: 'professional standards',
     color: 'text-primary-700',
     bgColor: 'bg-primary-50',
     borderColor: 'border-primary-100',
@@ -64,7 +55,7 @@ export default function StatsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
