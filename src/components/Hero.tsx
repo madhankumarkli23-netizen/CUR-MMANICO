@@ -88,18 +88,18 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-5">
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-5">
                         <Link
                             href="/contact"
-                            className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-primary-950 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent/50 flex items-center gap-2"
+                            className="btn-primary inline-flex items-center gap-2"
                         >
                             Contact Us
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4" />
                         </Link>
 
                         <Link
                             href="/services"
-                            className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-medium rounded-full border border-white/20 transition-all duration-300"
+                            className="btn-secondary"
                         >
                             View Services
                         </Link>
