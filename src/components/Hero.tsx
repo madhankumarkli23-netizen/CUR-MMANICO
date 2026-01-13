@@ -8,10 +8,10 @@ const Hero = () => {
     return (
         <section className="relative h-screen w-full overflow-hidden">
             {/* Background Motion (BGM) */}
-            <div className="absolute inset-0 z-0 bg-[#145886]">
+            <div className="absolute inset-0 z-0 bg-[#004992]">
                 {/* Visual texture overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#145886] via-[#145886] to-accent/5 opacity-50" />
-                <div className="w-full h-full bg-[length:200%_200%] bg-gradient-to-br from-[#145886] via-[#145886] to-[#145886] animate-gradient-slow opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#004992] via-[#004992] to-accent/5 opacity-50" />
+                <div className="w-full h-full bg-[length:200%_200%] bg-gradient-to-br from-[#004992] via-[#004992] to-[#004992] animate-gradient-slow opacity-90" />
 
                 {/* Abstract animated shapes */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl animate-pulse gpu-accelerated" />
