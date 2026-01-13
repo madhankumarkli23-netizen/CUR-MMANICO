@@ -32,12 +32,12 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               {/* CA India Logo */}
-              <div className="relative w-[60px] h-[60px] flex-shrink-0">
+              <div className="relative w-10 h-10 flex-shrink-0">
                 <Image
                   src="/ca-india-logo.png"
                   alt="ICAI Chartered Accountant"
                   fill
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
                 />
               </div>
               <div className="flex flex-col justify-center -space-y-0.5">

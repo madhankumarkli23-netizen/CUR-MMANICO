@@ -50,17 +50,18 @@ export default function Header() {
             aria-label="M MANI & CO Home"
           >
             {/* Firm Name with Integrated CA Logo */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-3">
               {/* Logo Icon */}
-              <div className={`relative flex-shrink-0 rounded-full overflow-hidden transition-all duration-200 ${isScrolled
-                ? 'h-12 w-12 md:h-14 md:w-14 bg-white p-1 shadow-md'
-                : 'h-16 w-16 md:h-20 md:w-20 bg-white p-1 shadow-md'
+              <div className={`relative flex-shrink-0 transition-all duration-200 ${isScrolled
+                ? 'h-6 w-6 md:h-8 md:w-8'
+                : 'h-8 w-8 md:h-10 md:w-10'
                 }`}>
                 <Image
                   src="/ca-logo-final.png"
                   alt="CA Logo"
                   fill
-                  className="object-contain"
+                  className={`object-contain transition-all duration-200 ${isScrolled ? 'brightness-0' : 'brightness-0 invert'
+                    }`}
                   priority
                 />
               </div>
@@ -94,10 +95,10 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-200 border-b-2 ${isActive
-                      ? 'text-accent border-accent font-semibold'
-                      : isScrolled
-                        ? 'text-primary-900 border-transparent hover:text-accent hover:border-accent'
-                        : 'text-white/90 border-transparent hover:text-white hover:border-accent'
+                    ? 'text-accent border-accent font-semibold'
+                    : isScrolled
+                      ? 'text-primary-900 border-transparent hover:text-accent hover:border-accent'
+                      : 'text-white/90 border-transparent hover:text-white hover:border-accent'
                     }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
