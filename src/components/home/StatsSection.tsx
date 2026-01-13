@@ -44,9 +44,6 @@ export default function StatsSection() {
     <section className="py-20 md:py-28 bg-neutral-50 relative">
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-            <span className="text-sm font-semibold text-primary-800">Our Practice</span>
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
             Professional Standards
           </h2>
@@ -61,18 +58,18 @@ export default function StatsSection() {
             return (
               <div
                 key={index}
-                className={`group relative ${stat.bgColor} rounded-xl p-8 text-center border ${stat.borderColor} hover:shadow-md transition-all duration-300 ${isVisible ? 'animate-fade-in' : 'opacity-0'
+                className={`card card-hover p-8 text-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}
                   }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-primary-200 shadow-sm mb-6">
-                    <Icon className={`w-7 h-7 ${stat.color}`} />
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-md bg-neutral-50 border border-neutral-200 shadow-sm mb-6">
+                    <Icon className="w-7 h-7 text-primary-700" />
                   </div>
 
                   {/* Value */}
-                  <div className={`text-4xl font-bold ${stat.color} mb-2`}>
+                  <div className="text-4xl font-bold text-primary-700 mb-2">
                     {stat.value}
                   </div>
 
