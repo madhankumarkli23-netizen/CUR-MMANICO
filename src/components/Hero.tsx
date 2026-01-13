@@ -43,41 +43,41 @@ const Hero = () => {
 
             {/* Content */}
             <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-4">
+                <div className="max-w-4xl mx-auto space-y-4 animate-fade-in-up">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
                         M MANI & CO
                     </h1>
-                    <p className="text-xl md:text-2xl lg:text-3xl text-accent font-light italic mb-6 tracking-wide">
+                    <p className="text-lg md:text-xl lg:text-2xl text-accent font-light italic tracking-wide">
                         Financial & Legal
                     </p>
-                    <p className="text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-3">
+                    <p className="text-xl md:text-2xl lg:text-3xl text-white font-semibold mt-2">
                         Chartered Accountants
                     </p>
-                    <p className="text-lg md:text-xl text-white/90 font-light mb-6">
+                    <p className="text-base md:text-lg text-white/90 font-light mt-1">
                         Bengaluru, Karnataka
                     </p>
-                    <div className="h-px w-24 bg-white/30 mx-auto my-6"></div>
-                    <p className="text-base md:text-lg text-neutral-200 max-w-3xl mx-auto font-light leading-relaxed mb-8">
+                    <div className="h-px w-24 bg-white/30 mx-auto my-4"></div>
+                    <p className="text-sm md:text-base text-neutral-200 max-w-3xl mx-auto font-light leading-relaxed px-4">
                         Professional CA firm in Bengaluru providing comprehensive services including income tax compliance and planning, GST advisory and returns, statutory audits, accounting and bookkeeping, company law compliance, and regulatory filings for businesses and individuals.
                     </p>
 
                     {/* Service Highlights */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
-                        <div className="text-center">
-                            <p className="text-white font-medium mb-1">Tax Advisory</p>
-                            <p className="text-sm text-white/70">Income Tax, GST & TDS</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto pt-6 pb-4 px-4">
+                        <div className="text-center py-2">
+                            <p className="text-white font-medium mb-1 text-sm md:text-base">Tax Advisory</p>
+                            <p className="text-xs md:text-sm text-white/70">Income Tax, GST & TDS</p>
                         </div>
-                        <div className="text-center">
-                            <p className="text-white font-medium mb-1">Audit Services</p>
-                            <p className="text-sm text-white/70">Statutory & Internal Audit</p>
+                        <div className="text-center py-2">
+                            <p className="text-white font-medium mb-1 text-sm md:text-base">Audit Services</p>
+                            <p className="text-xs md:text-sm text-white/70">Statutory & Internal Audit</p>
                         </div>
-                        <div className="text-center">
-                            <p className="text-white font-medium mb-1">Compliance</p>
-                            <p className="text-sm text-white/70">ROC & Regulatory Filings</p>
+                        <div className="text-center py-2">
+                            <p className="text-white font-medium mb-1 text-sm md:text-base">Compliance</p>
+                            <p className="text-xs md:text-sm text-white/70">ROC & Regulatory Filings</p>
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                         <Link
                             href="/contact"
                             className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-primary-950 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent/50 flex items-center gap-2"
