@@ -1,40 +1,33 @@
-'use client';
-
-import { useState } from 'react';
+import Link from 'next/link';
 import { Calculator, Home, ReceiptIndianRupee, Clock, Calendar } from 'lucide-react';
-import IncomeTaxCalculator from './IncomeTaxCalculator';
-import HRACalculator from './HRACalculator';
-import GSTCalculator from './GSTCalculator';
-import AdvanceTaxReminder from './AdvanceTaxReminder';
-import TDSDateChecker from './TDSDateChecker';
 
 const tools = [
   {
-    id: 'income-tax',
+    id: 'income-tax-calculator',
     icon: Calculator,
     title: 'Income Tax Estimator',
     description: 'Calculate estimated income tax liability for FY 2025-26',
   },
   {
-    id: 'hra',
+    id: 'hra-calculator',
     icon: Home,
     title: 'HRA Exemption Calculator',
     description: 'Estimate House Rent Allowance exemption amount',
   },
   {
-    id: 'gst',
+    id: 'gst-calculator',
     icon: ReceiptIndianRupee,
     title: 'GST Interest & Late Fee',
     description: 'Calculate GST interest and late fee for delayed filing',
   },
   {
-    id: 'advance-tax',
+    id: 'advance-tax-reminder',
     icon: Clock,
     title: 'Advance Tax Reminder',
     description: 'Check advance tax due dates and installment amounts',
   },
   {
-    id: 'tds-dates',
+    id: 'tds-due-date-checker',
     icon: Calendar,
     title: 'TDS Due Date Checker',
     description: 'View TDS deduction and filing due dates',
@@ -42,33 +35,6 @@ const tools = [
 ];
 
 export default function ToolsGrid() {
-  const [selectedTool, setSelectedTool] = useState<string | null>(null);
-
-  const renderToolComponent = () => {
-    switch (selectedTool) {
-      case 'income-tax':
-        return <IncomeTaxCalculator onClose={() => setSelectedTool(null)} />;
-      case 'hra':
-        return <HRACalculator onClose={() => setSelectedTool(null)} />;
-      case 'gst':
-        return <GSTCalculator onClose={() => setSelectedTool(null)} />;
-      case 'advance-tax':
-        return <AdvanceTaxReminder onClose={() => setSelectedTool(null)} />;
-      case 'tds-dates':
-        return <TDSDateChecker onClose={() => setSelectedTool(null)} />;
-      default:
-        return null;
-    }
-  };
-
-  if (selectedTool) {
-    return (
-      <div className="max-w-4xl mx-auto">
-        {renderToolComponent()}
-      </div>
-    );
-  }
-
   return (
     <div>
       <div className="text-center mb-12">
@@ -84,10 +50,10 @@ export default function ToolsGrid() {
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
-            <button
+            <Link
               key={tool.id}
-              onClick={() => setSelectedTool(tool.id)}
-              className="group relative p-8 bg-white border border-neutral-200 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary-900/10 hover:-translate-y-1 text-left overflow-hidden"
+              href={`/tools/${tool.id}`}
+              className="group relative p-8 bg-white border border-neutral-200 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary-900/10 hover:-translate-y-1 text-left overflow-hidden block"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -108,7 +74,7 @@ export default function ToolsGrid() {
                   Open Tool <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>
-            </button>
+            </Link>
           );
         })}
       </div>
