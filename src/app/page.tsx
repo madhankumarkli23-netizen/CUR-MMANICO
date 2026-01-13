@@ -16,6 +16,8 @@ import ServiceCard from '@/components/ServiceCard';
 import UpdatesPreview from '@/components/home/UpdatesPreview';
 import InsightsPreview from '@/components/home/InsightsPreview';
 import StatsSection from '@/components/home/StatsSection';
+import ValueProposition from '@/components/home/ValueProposition';
+import ServiceGrid from '@/components/home/ServiceGrid';
 import Script from 'next/script';
 
 const practiceAreas = [
@@ -90,6 +92,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-neutral-50">
       <Hero />
 
+      {/* Value Proposition */}
+      <ValueProposition />
+
       {/* Practice Areas */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
@@ -128,6 +133,9 @@ export default function HomePage() {
         {/* Stats Section */}
         <StatsSection />
       </section>
+
+      {/* Service Coverage Grid */}
+      <ServiceGrid />
 
       {/* How Engagement Works */}
       <section className="py-16 md:py-20 bg-neutral-50">
