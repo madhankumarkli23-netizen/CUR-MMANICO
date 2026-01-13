@@ -18,16 +18,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "M MANI & CO - Chartered Accountants | Bengaluru",
-  description: "Tax, audit, accounting, and compliance support for individuals and businesses. Professional chartered accountancy services in Bengaluru, Karnataka.",
-  keywords: "chartered accountant, tax compliance, audit, accounting, GST, income tax, Bengaluru, Karnataka",
+  title: "Chartered Accountants in Bengaluru | Tax, Audit & Compliance - M MANI & CO",
+  description: "Professional chartered accountancy services in Bengaluru, Karnataka. Income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.",
+  keywords: "chartered accountants Bengaluru, CA firm Bengaluru, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka",
   authors: [{ name: "M MANI & CO" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "M MANI & CO",
-    title: "M MANI & CO - Chartered Accountants",
-    description: "Professional chartered accountancy services in Bengaluru",
+    siteName: "M MANI & CO - Chartered Accountants",
+    title: "Chartered Accountants in Bengaluru | M MANI & CO",
+    description: "Professional tax, audit, accounting, and compliance services in Bengaluru, Karnataka",
   },
   robots: {
     index: true,

@@ -21,20 +21,22 @@ const Hero = () => {
                 <div
                     className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full animate-pulse"
                     style={{
-                        filter: 'blur(80px)',
+                        filter: 'blur(60px)',
                         transform: 'translate3d(0, 0, 0)',
                         willChange: 'transform, opacity',
-                        WebkitTransform: 'translate3d(0, 0, 0)'
+                        WebkitTransform: 'translate3d(0, 0, 0)',
+                        opacity: 0.7
                     }}
                 />
                 <div
                     className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full animate-pulse"
                     style={{
-                        filter: 'blur(80px)',
+                        filter: 'blur(60px)',
                         transform: 'translate3d(0, 0, 0)',
                         willChange: 'transform, opacity',
                         WebkitTransform: 'translate3d(0, 0, 0)',
-                        animationDelay: '1s'
+                        animationDelay: '1s',
+                        opacity: 0.7
                     }}
                 />
             </div>
@@ -43,11 +45,14 @@ const Hero = () => {
             <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
-                        Excellence in <span className="text-accent italic">Financial</span> & <span className="text-accent italic">Legal</span> Strategy
+                        Chartered Accountants
                     </h1>
+                    <p className="text-2xl md:text-3xl text-white/90 font-medium">
+                        Bengaluru, Karnataka, India
+                    </p>
 
                     <p className="text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto font-light leading-relaxed">
-                        M MANI & CO delivers premium chartered accountancy, audit, and tax compliances tailored for modern businesses and individuals.
+                        Professional services for income tax, GST, audit, accounting, and corporate compliance requirements.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
@@ -55,7 +60,7 @@ const Hero = () => {
                             href="/contact"
                             className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-primary-950 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent/50 flex items-center gap-2"
                         >
-                            Consult an Expert
+                            Contact Us
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
 
@@ -63,7 +68,7 @@ const Hero = () => {
                             href="/services"
                             className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-medium rounded-full border border-white/20 transition-all duration-300"
                         >
-                            Explore Services
+                            View Services
                         </Link>
                     </div>
                 </div>

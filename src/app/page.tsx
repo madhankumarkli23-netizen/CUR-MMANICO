@@ -95,13 +95,13 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary-800">What We Do</span>
+              <span className="text-sm font-semibold text-primary-800">Services Provided</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-4">
-              Practice Areas
+              Professional Services
             </h2>
             <p className="text-lg text-neutral-700 max-w-2xl mx-auto">
-              Professional support across multiple domains of accounting, taxation, and compliance.
+              We provide chartered accountancy services across taxation, audit, accounting, and regulatory compliance domains.
             </p>
           </div>
 

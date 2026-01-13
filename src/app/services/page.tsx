@@ -11,7 +11,6 @@ export default function ServicesPage() {
   return (
     <div className="bg-neutral-50 min-h-screen">
       {/* Hero Section */}
-      {/* Hero Section */}
       <PageHero
         title="Professional Services"
         subtitle="Comprehensive support across taxation, audit, accounting, and regulatory compliance"
