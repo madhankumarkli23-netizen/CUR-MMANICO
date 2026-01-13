@@ -17,9 +17,9 @@ const PageHero = ({ title, subtitle, parentLink }: PageHeroProps) => {
     return (
         <section className="relative w-full overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
             {/* Background Motion (BGM) */}
-            <div className="absolute inset-0 z-0 bg-[#145886]">
+            <div className="absolute inset-0 z-0 bg-[#004992]">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 z-10" />
-                <div className="w-full h-full bg-gradient-to-br from-[#145886] via-[#145886] to-[#145886] animate-gradient-slow" />
+                <div className="w-full h-full bg-gradient-to-br from-[#004992] via-[#004992] to-[#004992] animate-gradient-slow" />
 
                 {/* Abstract animated shapes */}
                 <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl animate-pulse gpu-accelerated" />
