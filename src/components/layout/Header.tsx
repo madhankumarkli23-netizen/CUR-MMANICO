@@ -50,17 +50,17 @@ export default function Header() {
             aria-label="M MANI & CO Home"
           >
             {/* Firm Name with Integrated CA Logo */}
-            <div className="flex items-center -space-x-5 md:-space-x-8">
+            <div className="flex items-center -space-x-10 md:-space-x-14">
               {/* CA Emblem - Prefixed to the firm name */}
-              <div className={`relative flex-shrink-0 transition-all duration-200 ${isScrolled
-                ? 'h-16 w-16 md:h-20 md:w-20'
-                : 'h-24 w-24 md:h-32 md:w-32'
+              <div className={`relative flex-shrink-0 transition-all duration-200 overflow-visible ${isScrolled
+                ? 'h-20 w-20 md:h-24 md:w-24'
+                : 'h-32 w-32 md:h-40 md:w-40'
                 }`}>
                 <Image
                   src="/ca-logo-final.png"
                   alt="CA Logo"
                   fill
-                  className={`object-contain transition-all duration-200 scale-125 ${isScrolled ? 'brightness-0 opacity-100' : 'brightness-0 invert'
+                  className={`object-contain transition-all duration-200 scale-[2.2] ${isScrolled ? 'brightness-0 opacity-100' : 'brightness-0 invert'
                     }`}
                   priority
                 />
