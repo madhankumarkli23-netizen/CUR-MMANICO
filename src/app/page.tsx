@@ -94,9 +94,6 @@ export default function HomePage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary-800">Services Provided</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-4">
               Professional Services
             </h2>
@@ -120,10 +117,10 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/services"
-              className="group inline-flex items-center px-8 py-4 bg-primary-700 text-white rounded-lg hover:bg-primary-800 font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+              className="btn-primary inline-flex items-center gap-2"
             >
               View all services
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
           </div>
         </div>

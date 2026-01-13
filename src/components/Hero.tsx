@@ -16,29 +16,6 @@ const Hero = () => {
                 <div className="w-full h-full bg-[length:200%_200%] animate-gradient-slow opacity-90" style={{
                     background: 'linear-gradient(to bottom right, rgb(0, 73, 146), rgb(0, 73, 146), rgb(0, 73, 146))'
                 }} />
-
-                {/* Abstract animated shapes - iOS compatible */}
-                <div
-                    className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full animate-pulse"
-                    style={{
-                        filter: 'blur(60px)',
-                        transform: 'translate3d(0, 0, 0)',
-                        willChange: 'transform, opacity',
-                        WebkitTransform: 'translate3d(0, 0, 0)',
-                        opacity: 0.7
-                    }}
-                />
-                <div
-                    className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full animate-pulse"
-                    style={{
-                        filter: 'blur(60px)',
-                        transform: 'translate3d(0, 0, 0)',
-                        willChange: 'transform, opacity',
-                        WebkitTransform: 'translate3d(0, 0, 0)',
-                        animationDelay: '1s',
-                        opacity: 0.7
-                    }}
-                />
             </div>
 
             {/* Content */}
