@@ -46,44 +46,49 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-3 md:gap-4 group"
             aria-label="M MANI & CO Home"
           >
-            {/* Firm Name with Integrated CA Logo */}
-            <div className="flex items-center -space-x-10 md:-space-x-14">
-              {/* CA Emblem - Prefixed to the firm name */}
-              <div className={`relative flex-shrink-0 transition-all duration-200 overflow-visible ${isScrolled
-                ? 'h-20 w-20 md:h-24 md:w-24'
-                : 'h-32 w-32 md:h-40 md:w-40'
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className={`relative flex-shrink-0 rounded-lg border transition-all duration-200 ${isScrolled
+                ? 'h-12 w-12 md:h-14 md:w-14 border-neutral-200 bg-white shadow-sm'
+                : 'h-14 w-14 md:h-16 md:w-16 border-white/40 bg-white/20 shadow'
                 }`}>
                 <Image
                   src="/ca-logo-final.png"
                   alt="CA Logo"
                   fill
-                  className={`object-contain transition-all duration-200 scale-[2.2] ${isScrolled ? 'brightness-0 opacity-100' : 'brightness-0 invert'
-                    }`}
+                  sizes="64px"
+                  className={`object-contain transition-all duration-200 ${isScrolled ? 'brightness-0 opacity-90' : 'brightness-0 invert'}`}
                   priority
                 />
               </div>
 
-              {/* Firm Name & Profession */}
-              <div className="flex flex-col -space-y-1">
+              <div className="flex flex-col leading-tight">
                 <span
-                  className={`text-2xl md:text-3xl font-bold leading-tight tracking-tight transition-all duration-200`}
+                  className={`font-bold tracking-tight transition-all duration-200 ${isScrolled
+                    ? 'text-xl md:text-2xl text-primary-900'
+                    : 'text-2xl md:text-3xl text-white'
+                    }`}
                   style={{
                     fontFamily: 'var(--font-serif-pro), serif',
-                    color: isScrolled ? '#145886' : '#FFFFFF'
                   }}
                 >
                   M MANI & CO
                 </span>
                 <span
-                  className={`font-sans font-medium uppercase tracking-[0.25em] transition-all duration-200 ${isScrolled
-                    ? 'text-[0.6rem] md:text-[0.65rem] text-primary-600'
-                    : 'text-[0.65rem] md:text-xs text-white/90'
+                  className={`uppercase font-semibold tracking-[0.16em] transition-all duration-200 ${isScrolled
+                    ? 'text-xs md:text-sm text-primary-700'
+                    : 'text-sm md:text-base text-white/90'
                     }`}
                 >
                   Chartered Accountants
+                </span>
+                <span
+                  className={`hidden sm:block text-[11px] font-medium transition-all duration-200 ${isScrolled ? 'text-neutral-500' : 'text-white/80'
+                    }`}
+                >
+                  ICAI Registered · Bengaluru
                 </span>
               </div>
             </div>
