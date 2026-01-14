@@ -32,6 +32,16 @@ export const metadata: Metadata = {
   creator: "M MANI & CO",
   publisher: "M MANI & CO",
   metadataBase: new URL('https://cur-mmanico.vercel.app'),
+  icons: {
+    icon: [
+      { url: '/ca-india-logo.png', type: 'image/png' },
+      { url: '/ca-india-logo.png', type: 'image/png', sizes: '32x32' },
+      { url: '/ca-india-logo.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/ca-india-logo.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
