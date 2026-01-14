@@ -39,12 +39,13 @@ const Hero = () => {
                 {/* Base Gradient with Depth */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950" />
                 
-                {/* Animated Gradient Orbs - Optimized for mobile */}
+                {/* Animated Gradient Orbs - Slower on mobile */}
                 <div 
                     className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] bg-gradient-to-br from-accent/20 via-primary-600/30 to-transparent rounded-full blur-3xl animate-pulse"
                     style={{
                         transform: 'translate3d(0, 0, 0)',
-                        willChange: 'transform, opacity'
+                        willChange: 'transform, opacity',
+                        animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                     }}
                 />
                 <div 
@@ -84,11 +85,11 @@ const Hero = () => {
                     backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px)'
                 }} />
                 
-                {/* Shimmer Effect - Optimized */}
+                {/* Shimmer Effect - Slower on mobile */}
                 <div 
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" 
                     style={{
-                        animation: 'shimmer 8s ease-in-out infinite',
+                        animation: 'shimmer 12s ease-in-out infinite',
                         transform: 'translate3d(0, 0, 0)',
                         willChange: 'transform'
                     }}
@@ -110,12 +111,12 @@ const Hero = () => {
                     />
                 ))}
                 
-                {/* Parallax Mouse Follow Effect - Optimized */}
+                {/* Parallax Mouse Follow Effect - Slower on mobile */}
                 <div 
                     className="absolute top-1/2 left-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-gradient-radial from-accent/3 via-transparent to-transparent rounded-full blur-2xl pointer-events-none"
                     style={{
                         transform: `translate3d(calc(-50% + ${(mousePosition.x - 50) * 0.3}px), calc(-50% + ${(mousePosition.y - 50) * 0.3}px), 0)`,
-                        transition: 'transform 0.3s ease-out',
+                        transition: 'transform 0.6s ease-out',
                         willChange: 'transform'
                     }}
                 />

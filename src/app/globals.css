@@ -61,26 +61,41 @@
     }
   }
 
-  /* Reduce animation complexity on mobile - Faster */
-  @media (max-width: 768px) {
-    [class*="animate-"] {
-      animation-duration: 0.4s !important;
-    }
-    
-    .blur-3xl {
-      filter: blur(30px) !important;
-    }
-    
-    .blur-2xl {
-      filter: blur(20px) !important;
-    }
+      /* Slower, medium-speed animations on mobile */
+      @media (max-width: 768px) {
+        /* Slower pulse animation for hero background effects */
+        .animate-pulse {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+        }
+        
+        /* Slower shimmer animation */
+        .animate-shimmer {
+          animation: shimmer 12s ease-in-out infinite !important;
+        }
+        
+        /* Slower ping animation for buttons */
+        [class*="animate-[ping"] {
+          animation: ping 4s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+        }
+        
+        /* Slower transitions for buttons */
+        [class*="transition-all"] {
+          transition-duration: 500ms !important;
+        }
+        
+        .blur-3xl {
+          filter: blur(30px) !important;
+        }
+        
+        .blur-2xl {
+          filter: blur(20px) !important;
+        }
 
-    /* Disable heavy animations on mobile */
-    [class*="float"] {
-      animation: none !important;
-      opacity: 0.3 !important;
-    }
-  }
+        /* Slower float animation on mobile */
+        [class*="float"] {
+          animation-duration: 30s !important;
+        }
+      }
 
   /* Fast loading - reduce initial animations */
   @media (prefers-reduced-motion: no-preference) {

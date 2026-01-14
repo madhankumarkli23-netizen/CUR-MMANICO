@@ -32,15 +32,25 @@ export default function WhatsAppButton() {
         className={`relative transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         style={{ transitionDelay: '0.1s' }}
       >
-        {/* Pulsing Ring Animation */}
-        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-30"></div>
-        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-[ping_2s_ease-in-out_infinite_1s] opacity-20"></div>
+        {/* Pulsing Ring Animation - Slower on mobile */}
+        <div 
+          className="absolute inset-0 bg-[#25D366] rounded-full opacity-30"
+          style={{
+            animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite'
+          }}
+        ></div>
+        <div 
+          className="absolute inset-0 bg-[#25D366] rounded-full opacity-20"
+          style={{
+            animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite 1s'
+          }}
+        ></div>
 
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-[#25D366]/50 hover:scale-110 active:scale-95 transition-all duration-300 group touch-manipulation"
+          className="relative flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-[#25D366]/50 hover:scale-110 active:scale-95 transition-all duration-500 group touch-manipulation"
           aria-label="Contact us on WhatsApp"
           style={{ 
             width: '56px', 
@@ -65,13 +75,23 @@ export default function WhatsAppButton() {
         className={`relative transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         style={{ transitionDelay: '0.2s' }}
       >
-        {/* Pulsing Ring Animation */}
-        <div className="absolute inset-0 bg-accent rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-30"></div>
-        <div className="absolute inset-0 bg-accent rounded-full animate-[ping_2s_ease-in-out_infinite_1s] opacity-20"></div>
+        {/* Pulsing Ring Animation - Slower on mobile */}
+        <div 
+          className="absolute inset-0 bg-accent rounded-full opacity-30"
+          style={{
+            animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite'
+          }}
+        ></div>
+        <div 
+          className="absolute inset-0 bg-accent rounded-full opacity-20"
+          style={{
+            animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite 1s'
+          }}
+        ></div>
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="relative flex items-center justify-center bg-accent text-white rounded-full shadow-lg hover:shadow-accent/50 hover:scale-110 active:scale-95 transition-all duration-300 group touch-manipulation"
+          className="relative flex items-center justify-center bg-accent text-white rounded-full shadow-lg hover:shadow-accent/50 hover:scale-110 active:scale-95 transition-all duration-500 group touch-manipulation"
           aria-label="Book Appointment"
           style={{ 
             width: '56px', 
