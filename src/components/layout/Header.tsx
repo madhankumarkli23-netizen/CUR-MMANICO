@@ -41,7 +41,7 @@ export default function Header() {
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: '68px', height: 'auto' }}>
+        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto' }}>
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
@@ -49,8 +49,12 @@ export default function Header() {
             aria-label="M MANI & CO Home"
             style={{ gap: 0 }}
           >
-            {/* CA Logo - Matching Full Text Block Height */}
-            <div className="relative flex-shrink-0 flex items-center" style={{ width: '85px', height: '85px', marginRight: '-8px' }}>
+            {/* CA Logo - Matching Full Text Block Height - Responsive */}
+            <div className="relative flex-shrink-0 flex items-center" style={{ 
+              width: 'clamp(60px, 12vw, 85px)', 
+              height: 'clamp(60px, 12vw, 85px)', 
+              marginRight: 'clamp(-8px, -1vw, -8px)'
+            }}>
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
@@ -64,11 +68,14 @@ export default function Header() {
               />
             </div>
 
-            {/* Firm Name Stack - Tighter spacing */}
-            <div className="flex flex-col justify-center leading-none" style={{ gap: '0.05rem', marginLeft: '-6px' }}>
-              {/* Primary: M Mani & Co - Larger Size */}
+            {/* Firm Name Stack - Tighter spacing - Responsive */}
+            <div className="flex flex-col justify-center leading-none" style={{ 
+              gap: '0.05rem', 
+              marginLeft: 'clamp(-6px, -1vw, -6px)'
+            }}>
+              {/* Primary: M Mani & Co - Larger Size - Responsive */}
               <span
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-900"
+                className="font-bold text-primary-900"
                 style={{
                   fontFamily: 'var(--font-serif-pro), Georgia, serif',
                   fontWeight: 700,
@@ -76,14 +83,15 @@ export default function Header() {
                   lineHeight: '1.1',
                   margin: 0,
                   padding: 0,
-                  color: '#004992'
+                  color: '#004992',
+                  fontSize: 'clamp(1.25rem, 4vw, 2.25rem)'
                 }}
               >
                 M Mani & Co
               </span>
-              {/* Secondary: Chartered Accountants - Tighter spacing */}
+              {/* Secondary: Chartered Accountants - Tighter spacing - Responsive */}
               <span
-                className="uppercase text-primary-700 text-[0.45em] md:text-[0.5em]"
+                className="uppercase text-primary-700"
                 style={{
                   fontFamily: 'var(--font-inter), sans-serif',
                   fontWeight: 600,
@@ -91,7 +99,8 @@ export default function Header() {
                   lineHeight: '1.2',
                   margin: 0,
                   padding: 0,
-                  marginTop: '0.05rem'
+                  marginTop: '0.05rem',
+                  fontSize: 'clamp(0.45em, 1.2vw, 0.5em)'
                 }}
               >
                 Chartered Accountants
