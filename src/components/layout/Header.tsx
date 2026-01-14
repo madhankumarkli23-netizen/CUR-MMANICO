@@ -41,13 +41,13 @@ export default function Header() {
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto' }}>
+        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1rem' }}>
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
-            className="flex items-start group"
+            className="flex items-start group flex-shrink-0"
             aria-label="M MANI & CO Home"
-            style={{ gap: 0, alignItems: 'flex-start' }}
+            style={{ gap: 0, alignItems: 'flex-start', maxWidth: 'calc(100% - 200px)' }}
           >
             {/* CA Logo - Matching Full Text Block Height - Responsive */}
             <div className="relative flex-shrink-0" style={{ 
@@ -70,7 +70,7 @@ export default function Header() {
             </div>
 
             {/* Firm Name Stack - Tighter spacing - Responsive */}
-            <div className="flex flex-col justify-start leading-none" style={{ 
+            <div className="flex flex-col justify-start leading-none flex-shrink-0" style={{ 
               gap: '0.05rem', 
               marginLeft: 'clamp(-6px, -1vw, -6px)',
               alignSelf: 'flex-start'
@@ -111,7 +111,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-2 flex-shrink-0">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
