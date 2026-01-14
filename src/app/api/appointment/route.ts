@@ -66,9 +66,19 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     // Note: Install with 'npm install nodemailer' if using SMTP
     else if (process.env.SMTP_HOST && process.env.SMTP_USER) {
       try {
-        // Dynamic import with proper error handling
-        const nodemailer = await import('nodemailer');
-        const transporter = nodemailer.default.createTransport({
+        // Use require with try-catch to handle missing module
+        let nodemailer;
+        try {
+          nodemailer = require('nodemailer');
+        } catch (requireError: any) {
+          if (requireError.code === 'MODULE_NOT_FOUND') {
+            console.warn('Nodemailer not installed. Install with: npm install nodemailer');
+            throw requireError;
+          }
+          throw requireError;
+        }
+        
+        const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST,
           port: parseInt(process.env.SMTP_PORT || '587'),
           secure: process.env.SMTP_PORT === '465',
@@ -98,11 +108,21 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     // Note: Install with 'npm install @sendgrid/mail' if using SendGrid
     else if (process.env.SENDGRID_API_KEY) {
       try {
-        // Dynamic import with proper error handling
-        const sgMail = await import('@sendgrid/mail');
-        sgMail.default.setApiKey(process.env.SENDGRID_API_KEY);
+        // Use require with try-catch to handle missing module
+        let sgMail;
+        try {
+          sgMail = require('@sendgrid/mail');
+        } catch (requireError: any) {
+          if (requireError.code === 'MODULE_NOT_FOUND') {
+            console.warn('SendGrid not installed. Install with: npm install @sendgrid/mail');
+            throw requireError;
+          }
+          throw requireError;
+        }
         
-        await sgMail.default.send({
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        
+        await sgMail.send({
           to: recipientEmail,
           from: process.env.SENDGRID_FROM_EMAIL || 'website@mmanico.com',
           subject: emailSubject,
