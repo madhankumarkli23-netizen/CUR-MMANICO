@@ -36,12 +36,12 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white shadow-sm`}
       style={{
-        paddingTop: `calc(0.125rem + env(safe-area-inset-top, 0px))`,
-        paddingBottom: `0.125rem`,
+        paddingTop: `calc(0.05rem + env(safe-area-inset-top, 0px))`,
+        paddingBottom: `0.05rem`,
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: '70px', height: 'auto' }}>
+        <div className="flex items-center justify-between" style={{ minHeight: '68px', height: 'auto' }}>
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
