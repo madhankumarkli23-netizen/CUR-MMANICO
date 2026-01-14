@@ -2,17 +2,20 @@ import { Metadata } from 'next';
 import ServiceAccordion from '@/components/services/ServiceAccordion';
 import PageHero from '@/components/PageHero';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'Professional Services - Tax, Audit, Accounting & Compliance | M MANI & CO',
+  title: 'Professional Services - Tax, Audit, Accounting & Compliance',
   description: 'Comprehensive chartered accountancy services including direct tax, indirect tax (GST), audit, accounting, corporate compliance, and advisory services for businesses and individuals in Bengaluru.',
-  keywords: 'CA services Bengaluru, tax services, GST services, audit services, accounting services, corporate compliance, ROC filing, TDS compliance',
+  keywords: 'CA services Bengaluru Bangalore, tax services, GST services, audit services, accounting services, corporate compliance, ROC filing, TDS compliance',
   openGraph: {
-    title: 'Professional Services - M MANI & CO',
+    title: 'Professional Services - Tax, Audit, Accounting & Compliance',
     description: 'Comprehensive chartered accountancy services including tax, GST, audit, accounting, and corporate compliance',
     type: 'website',
+    url: `${siteUrl}/services`,
   },
   alternates: {
-    canonical: 'https://manicoca.com/services',
+    canonical: `${siteUrl}/services`,
   },
 };
 

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -19,6 +20,23 @@ import StatsSection from '@/components/home/StatsSection';
 import ValueProposition from '@/components/home/ValueProposition';
 import ServiceGrid from '@/components/home/ServiceGrid';
 import Script from 'next/script';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
+export const metadata: Metadata = {
+  title: 'Chartered Accountants in Bengaluru | Tax, Audit & Compliance',
+  description: 'Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. ICAI compliant, informational only.',
+  keywords: 'chartered accountants Bengaluru Bangalore, CA firm Bengaluru, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka',
+  openGraph: {
+    title: 'Chartered Accountants in Bengaluru | Tax, Audit & Compliance',
+    description: 'Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.',
+    type: 'website',
+    url: siteUrl,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+};
 
 const practiceAreas = [
   {
@@ -293,176 +311,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Enhanced JSON-LD Schema for SEO */}
+      {/* Breadcrumb Schema for Homepage */}
       <Script
-        id="schema-local-business"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": ["AccountingService", "LocalBusiness", "ProfessionalService"],
-            "name": "M MANI & CO",
-            "alternateName": "M MANI & CO Chartered Accountants",
-            "legalName": "M MANI & CO",
-            "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka. Top CA firm in Bengaluru for income tax, GST, audit, and corporate compliance services.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
-              "addressLocality": "Bengaluru",
-              "addressRegion": "Karnataka",
-              "postalCode": "560102",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "12.9169",
-              "longitude": "77.6413"
-            },
-            "areaServed": [
-              {
-                "@type": "City",
-                "name": "Bengaluru",
-                "sameAs": "https://en.wikipedia.org/wiki/Bangalore"
-              },
-              {
-                "@type": "State",
-                "name": "Karnataka"
-              },
-              {
-                "@type": "Country",
-                "name": "India"
-              }
-            ],
-            "url": "https://manicoca.com",
-            "telephone": "+919632818089",
-            "email": "info@mmanico.com",
-            "priceRange": "$$",
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              "opens": "09:00",
-              "closes": "18:00"
-            },
-            "serviceType": [
-              "Tax Compliance",
-              "Income Tax Services",
-              "GST Compliance",
-              "Audit Services",
-              "Statutory Audit",
-              "Tax Audit",
-              "Accounting Services",
-              "Corporate Compliance",
-              "ROC Compliance",
-              "TDS Compliance"
-            ],
-            "credential": {
-              "@type": "EducationalOccupationalCredential",
-              "credentialCategory": "ICAI Registration",
-              "recognizedBy": {
-                "@type": "Organization",
-                "name": "Institute of Chartered Accountants of India",
-                "url": "https://www.icai.org"
-              }
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Chartered Accountancy Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Income Tax Compliance & Advisory"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "GST Compliance Services"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Audit & Assurance Services"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Corporate & ROC Compliance"
-                  }
-                }
-              ]
-            },
-            "sameAs": [
-              "https://manicoca.com",
-              "https://g.page/m-mani-co"
-            ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "25"
-            }
-          })
-        }}
-      />
-      
-      {/* Organization Schema */}
-      <Script
-        id="schema-organization"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "name": "M MANI & CO",
-            "legalName": "M MANI & CO",
-            "description": "Chartered Accountants firm providing professional services in taxation, audit, accounting, and compliance",
-            "url": "https://manicoca.com",
-            "logo": "https://manicoca.com/ca-india-logo.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
-              "addressLocality": "Bengaluru",
-              "addressRegion": "Karnataka",
-              "postalCode": "560102",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "12.9169",
-              "longitude": "77.6413"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+919632818089",
-              "contactType": "Customer Service",
-              "email": "info@mmanico.com",
-              "areaServed": "IN",
-              "availableLanguage": ["en", "hi"]
-            },
-            "areaServed": {
-              "@type": "Country",
-              "name": "India"
-            },
-            "knowsAbout": [
-              "Tax Compliance",
-              "GST",
-              "Audit",
-              "Accounting",
-              "Corporate Compliance"
-            ]
-          })
-        }}
-      />
-      
-      {/* Breadcrumb Schema */}
-      <Script
-        id="schema-breadcrumb"
+        id="schema-breadcrumb-home"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -473,7 +324,7 @@ export default function HomePage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://manicoca.com"
+                "item": siteUrl
               }
             ]
           })

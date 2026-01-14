@@ -1,14 +1,22 @@
 import { Metadata } from 'next';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'Disclaimer - M MANI & CO',
-  description: 'Important disclaimers and notices for M MANI & CO website. ICAI compliance information and professional service disclaimers.',
+  title: 'Disclaimer',
+  description: 'Important disclaimers and notices for M MANI & CO website. ICAI compliance information and professional service disclaimers. Website is for informational purposes only.',
   robots: {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: 'Disclaimer',
+    description: 'Important disclaimers and notices for M MANI & CO website. ICAI compliance information and professional service disclaimers.',
+    type: 'website',
+    url: `${siteUrl}/disclaimer`,
+  },
   alternates: {
-    canonical: 'https://manicoca.com/disclaimer',
+    canonical: `${siteUrl}/disclaimer`,
   },
 };
 

@@ -762,18 +762,32 @@ const articles: Record<string, any> = {
   },
 };
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const article = articles[params.slug];
 
   if (!article) {
     return {
-      title: 'Article Not Found - M MANI & CO',
+      title: 'Article Not Found',
+      alternates: {
+        canonical: `${siteUrl}/resources`,
+      },
     };
   }
 
   return {
-    title: `${article.title} - M MANI & CO`,
-    description: article.title,
+    title: article.title,
+    description: article.title + '. Educational tax and compliance insights from M MANI & CO, chartered accountants in Bengaluru.',
+    openGraph: {
+      title: article.title,
+      description: article.title,
+      type: 'article',
+      url: `${siteUrl}/resources/insights/${params.slug}`,
+    },
+    alternates: {
+      canonical: `${siteUrl}/resources/insights/${params.slug}`,
+    },
   };
 }
 

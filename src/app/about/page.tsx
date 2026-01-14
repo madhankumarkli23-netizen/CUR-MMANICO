@@ -2,17 +2,20 @@ import { Metadata } from 'next';
 import { Shield, Clock, Users, CheckCircle2 } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'About Us - Chartered Accountants in Bengaluru | M MANI & CO',
+  title: 'About Us - Chartered Accountants in Bengaluru',
   description: 'Professional chartered accountancy firm in Bengaluru providing tax, audit, accounting, and compliance services. Learn about our practice, values, and approach to professional service delivery.',
-  keywords: 'about CA firm Bengaluru, chartered accountants Bengaluru, professional CA services, tax audit accounting firm',
+  keywords: 'about CA firm Bengaluru Bangalore, chartered accountants Bengaluru, professional CA services, tax audit accounting firm',
   openGraph: {
-    title: 'About Us - M MANI & CO Chartered Accountants',
+    title: 'About Us - Chartered Accountants in Bengaluru',
     description: 'Professional chartered accountancy firm in Bengaluru providing comprehensive tax, audit, accounting, and compliance services',
     type: 'website',
+    url: `${siteUrl}/about`,
   },
   alternates: {
-    canonical: 'https://manicoca.com/about',
+    canonical: `${siteUrl}/about`,
   },
 };
 

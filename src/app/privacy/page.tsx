@@ -1,14 +1,22 @@
 import { Metadata } from 'next';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'Privacy Policy - M MANI & CO',
+  title: 'Privacy Policy',
   description: 'Privacy policy and data protection practices for M MANI & CO website. Information on how we handle client data and website visitor information.',
   robots: {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: 'Privacy Policy',
+    description: 'Privacy policy and data protection practices for M MANI & CO website.',
+    type: 'website',
+    url: `${siteUrl}/privacy`,
+  },
   alternates: {
-    canonical: 'https://manicoca.com/privacy',
+    canonical: `${siteUrl}/privacy`,
   },
 };
 

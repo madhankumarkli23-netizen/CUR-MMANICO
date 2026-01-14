@@ -1,14 +1,22 @@
 import { Metadata } from 'next';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'Terms of Use - M MANI & CO',
+  title: 'Terms of Use',
   description: 'Terms and conditions for using M MANI & CO website. Professional service terms and website usage guidelines.',
   robots: {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: 'Terms of Use',
+    description: 'Terms and conditions for using M MANI & CO website. Professional service terms and website usage guidelines.',
+    type: 'website',
+    url: `${siteUrl}/terms`,
+  },
   alternates: {
-    canonical: 'https://manicoca.com/terms',
+    canonical: `${siteUrl}/terms`,
   },
 };
 

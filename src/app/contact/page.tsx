@@ -3,17 +3,20 @@ import ContactForm from '@/components/contact/ContactForm';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: 'Contact Us - Chartered Accountants in Bengaluru HSR Layout | M MANI & CO',
+  title: 'Contact Us - Chartered Accountants in Bengaluru HSR Layout',
   description: 'Contact M MANI & CO for professional chartered accountancy services. Located at Muji Square, 5th Floor, HSR Layout, Bengaluru - 560102, Karnataka. Enquiries regarding tax, audit, accounting, and compliance services.',
-  keywords: 'contact CA firm Bengaluru, chartered accountant contact HSR Layout, CA firm Bengaluru address, tax consultant Bengaluru HSR Layout, CA firm near me, chartered accountants HSR Layout',
+  keywords: 'contact CA firm Bengaluru Bangalore, chartered accountant contact HSR Layout, CA firm Bengaluru address, tax consultant Bengaluru HSR Layout, CA firm near me, chartered accountants HSR Layout',
   openGraph: {
-    title: 'Contact Us - M MANI & CO Chartered Accountants',
+    title: 'Contact Us - Chartered Accountants in Bengaluru',
     description: 'Contact M MANI & CO for professional chartered accountancy services in Bengaluru, Karnataka',
     type: 'website',
+    url: `${siteUrl}/contact`,
   },
   alternates: {
-    canonical: 'https://manicoca.com/contact',
+    canonical: `${siteUrl}/contact`,
   },
 };
 

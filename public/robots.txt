@@ -1,20 +1,12 @@
 # robots.txt for M MANI & CO Chartered Accountants Website
-# https://manicoca.com
+# Note: Update Sitemap URL if NEXT_PUBLIC_SITE_URL changes
 
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas if any
+# Disallow admin or private areas
 Disallow: /api/
 Disallow: /_next/
-
-# Allow important pages
-Allow: /
-Allow: /about
-Allow: /services
-Allow: /resources
-Allow: /tools
-Allow: /contact
 
 # Sitemap location
 Sitemap: https://manicoca.com/sitemap.xml

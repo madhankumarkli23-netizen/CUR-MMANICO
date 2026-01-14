@@ -24,14 +24,20 @@ const sourceSerif = Source_Serif_4({
   weight: ['400', '600', '700'],
 });
 
+// SEO Configuration - Get site URL from environment variable
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manicoca.com';
+
 export const metadata: Metadata = {
-  title: "Chartered Accountants in Bengaluru | Tax, Audit & Compliance - M MANI & CO",
-  description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. Chartered accountancy services in tax planning, audit, and compliance.",
-  keywords: "chartered accountants Bengaluru, CA firm Bengaluru, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka, chartered accountancy firm",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "M Mani & Co | Chartered Accountants in Bengaluru",
+    template: "%s | M Mani & Co",
+  },
+  description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. ICAI compliant, informational only.",
+  keywords: "chartered accountants Bengaluru, CA firm Bengaluru Bangalore, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka, chartered accountancy firm",
   authors: [{ name: "M MANI & CO" }],
   creator: "M MANI & CO",
   publisher: "M MANI & CO",
-  metadataBase: new URL('https://manicoca.com'),
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -44,13 +50,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "M MANI & CO - Chartered Accountants",
-    title: "Chartered Accountants in Bengaluru | Tax, Audit & Compliance - M MANI & CO",
+    title: "M Mani & Co | Chartered Accountants in Bengaluru",
     description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.",
-    url: "https://manicoca.com",
+    url: siteUrl,
     // Add Open Graph image when available
     // images: [
     //   {
-    //     url: '/og-image.jpg',
+    //     url: `${siteUrl}/og-image.jpg`,
     //     width: 1200,
     //     height: 630,
     //     alt: 'M MANI & CO - Chartered Accountants',
@@ -58,11 +64,11 @@ export const metadata: Metadata = {
     // ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Chartered Accountants in Bengaluru | M MANI & CO",
+    card: "summary",
+    title: "M Mani & Co | Chartered Accountants in Bengaluru",
     description: "Professional tax, audit, accounting, and compliance services in Bengaluru, Karnataka",
     // Add Twitter image when available
-    // images: ['/twitter-image.jpg'],
+    // images: [`${siteUrl}/twitter-image.jpg`],
   },
   robots: {
     index: true,
@@ -76,7 +82,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://manicoca.com",
+    canonical: siteUrl,
   },
   verification: {
     // Add verification codes when available
@@ -137,6 +143,119 @@ export default function RootLayout({
             }
           `
         }} />
+        {/* JSON-LD Structured Data - SEO Backend Only */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "M MANI & CO",
+              "legalName": "M MANI & CO",
+              "alternateName": "M MANI & CO Chartered Accountants",
+              "url": siteUrl,
+              "logo": `${siteUrl}/ca-india-logo.png`,
+              "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka, India.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
+                "addressLocality": "Bengaluru",
+                "addressRegion": "Karnataka",
+                "postalCode": "560102",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "12.9169",
+                "longitude": "77.6413"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+919632818089",
+                "contactType": "Customer Service",
+                "email": "info@mmanico.com",
+                "areaServed": "IN",
+                "availableLanguage": ["en", "hi"]
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Bengaluru"
+                },
+                {
+                  "@type": "State",
+                  "name": "Karnataka"
+                },
+                {
+                  "@type": "Country",
+                  "name": "India"
+                }
+              ],
+              "sameAs": [
+                `${siteUrl}`,
+                "https://g.page/m-mani-co"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AccountingService",
+              "name": "M MANI & CO",
+              "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka.",
+              "url": siteUrl,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
+                "addressLocality": "Bengaluru",
+                "addressRegion": "Karnataka",
+                "postalCode": "560102",
+                "addressCountry": "IN"
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Bengaluru"
+                },
+                {
+                  "@type": "Country",
+                  "name": "India"
+                }
+              ],
+              "serviceType": [
+                "Tax Compliance",
+                "Income Tax Services",
+                "GST Compliance",
+                "Audit Services",
+                "Statutory Audit",
+                "Tax Audit",
+                "Accounting Services",
+                "Corporate Compliance",
+                "ROC Compliance",
+                "TDS Compliance"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "M MANI & CO - Chartered Accountants",
+              "url": siteUrl,
+              "description": "Professional chartered accountancy firm in Bengaluru, Karnataka providing tax, audit, accounting, and compliance services.",
+              "publisher": {
+                "@type": "Organization",
+                "name": "M MANI & CO"
+              }
+            })
+          }}
+        />
       </body>
     </html>
   );
