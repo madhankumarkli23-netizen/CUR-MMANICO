@@ -45,21 +45,37 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     let emailSent = false;
 
     // Option 1: Resend (Recommended - Easiest setup)
+    // Note: Install with 'npm install resend' if using Resend
     if (process.env.RESEND_API_KEY) {
       try {
-        const { Resend } = await import('resend');
-        const resend = new Resend(process.env.RESEND_API_KEY);
-        
-        await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL || 'website@mmanico.com',
-          to: recipientEmail,
-          subject: emailSubject,
-          text: emailBody,
-          html: emailBody.replace(/\n/g, '<br>'),
+        // Dynamic import with error handling for missing module
+        const resendModule = await import('resend').catch((err: any) => {
+          if (err.code === 'MODULE_NOT_FOUND') {
+            console.warn('Resend not installed. Install with: npm install resend');
+            return null;
+          }
+          throw err;
         });
-        emailSent = true;
-      } catch (emailError) {
-        console.error('Resend email error:', emailError);
+        
+        if (resendModule) {
+          const { Resend } = resendModule;
+          const resend = new Resend(process.env.RESEND_API_KEY);
+          
+          await resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL || 'website@mmanico.com',
+            to: recipientEmail,
+            subject: emailSubject,
+            text: emailBody,
+            html: emailBody.replace(/\n/g, '<br>'),
+          });
+          emailSent = true;
+        }
+      } catch (emailError: any) {
+        if (emailError?.code === 'MODULE_NOT_FOUND' || emailError?.message?.includes('Cannot find module')) {
+          console.warn('Resend not installed. Install with: npm install resend');
+        } else {
+          console.error('Resend email error:', emailError);
+        }
       }
     }
     // Option 2: Nodemailer (SMTP/Gmail) - Optional dependency
