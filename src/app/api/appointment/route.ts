@@ -64,20 +64,11 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     }
     // Option 2: Nodemailer (SMTP/Gmail) - Optional dependency
     // Note: Install with 'npm install nodemailer' if using SMTP
+    // This is commented out to prevent build errors - uncomment when nodemailer is installed
+    /*
     else if (process.env.SMTP_HOST && process.env.SMTP_USER) {
       try {
-        // Use require with try-catch to handle missing module
-        let nodemailer;
-        try {
-          nodemailer = require('nodemailer');
-        } catch (requireError: any) {
-          if (requireError.code === 'MODULE_NOT_FOUND') {
-            console.warn('Nodemailer not installed. Install with: npm install nodemailer');
-            throw requireError;
-          }
-          throw requireError;
-        }
-        
+        const nodemailer = require('nodemailer');
         const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST,
           port: parseInt(process.env.SMTP_PORT || '587'),
@@ -97,29 +88,17 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         });
         emailSent = true;
       } catch (emailError: any) {
-        if (emailError?.code === 'MODULE_NOT_FOUND' || emailError?.message?.includes('Cannot find module')) {
-          console.warn('Nodemailer not installed. Install with: npm install nodemailer');
-        } else {
-          console.error('Nodemailer email error:', emailError);
-        }
+        console.error('Nodemailer email error:', emailError);
       }
     }
+    */
     // Option 3: SendGrid - Optional dependency
     // Note: Install with 'npm install @sendgrid/mail' if using SendGrid
+    // This is commented out to prevent build errors - uncomment when @sendgrid/mail is installed
+    /*
     else if (process.env.SENDGRID_API_KEY) {
       try {
-        // Use require with try-catch to handle missing module
-        let sgMail;
-        try {
-          sgMail = require('@sendgrid/mail');
-        } catch (requireError: any) {
-          if (requireError.code === 'MODULE_NOT_FOUND') {
-            console.warn('SendGrid not installed. Install with: npm install @sendgrid/mail');
-            throw requireError;
-          }
-          throw requireError;
-        }
-        
+        const sgMail = require('@sendgrid/mail');
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         
         await sgMail.send({
@@ -131,13 +110,10 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         });
         emailSent = true;
       } catch (emailError: any) {
-        if (emailError?.code === 'MODULE_NOT_FOUND' || emailError?.message?.includes('Cannot find module')) {
-          console.warn('SendGrid not installed. Install with: npm install @sendgrid/mail');
-        } else {
-          console.error('SendGrid email error:', emailError);
-        }
+        console.error('SendGrid email error:', emailError);
       }
     }
+    */
     
     // Fallback: Log email details (for development/testing)
     if (!emailSent) {
