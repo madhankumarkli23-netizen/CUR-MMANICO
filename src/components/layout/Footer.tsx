@@ -22,11 +22,23 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-primary-900 text-neutral-300 overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-primary-700/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-800/10 rounded-full blur-3xl"></div>
+      {/* Enhanced Background with Consistent Design */}
+      <div className="absolute inset-0 z-0">
+        {/* Base Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950" />
+        
+        {/* Animated Gradient Orbs */}
+        <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-primary-700/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-primary-800/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+        
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }}></div>
+      </div>
 
-      <div className="container-custom py-12 md:py-16 relative z-10">
+      <div className="container-custom py-16 md:py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Firm Info */}
           <div className="lg:col-span-2">
@@ -41,10 +53,10 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col justify-center -space-y-0.5">
-                <span className="text-2xl font-bold text-white">
+                <span className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                   M MANI & CO
                 </span>
-                <span className="text-sm text-neutral-300 font-medium">
+                <span className="text-sm text-neutral-300 font-semibold uppercase" style={{ fontFamily: 'var(--font-inter), sans-serif', letterSpacing: '0.1em', lineHeight: '1.3' }}>
                   Chartered Accountants
                 </span>
               </div>
@@ -53,25 +65,31 @@ export default function Footer() {
               Tax, audit, accounting, and compliance support for individuals and businesses.
             </p>
 
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-neutral-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-sm">Bengaluru, Karnataka</span>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3 group">
+                <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                  <MapPin className="w-5 h-5 text-white flex-shrink-0" aria-hidden="true" />
+                </div>
+                <span className="text-sm pt-2">Bengaluru, Karnataka</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-neutral-400 flex-shrink-0" aria-hidden="true" />
+              <div className="flex items-center gap-3 group">
+                <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                  <Phone className="w-5 h-5 text-white flex-shrink-0" aria-hidden="true" />
+                </div>
                 <a
                   href="tel:+919632818089"
-                  className="text-sm hover:text-white transition-colors"
+                  className="text-sm hover:text-white transition-colors font-medium"
                 >
                   +91 96328 18089
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-neutral-400 flex-shrink-0" aria-hidden="true" />
+              <div className="flex items-center gap-3 group">
+                <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                  <Mail className="w-5 h-5 text-white flex-shrink-0" aria-hidden="true" />
+                </div>
                 <a
                   href="mailto:info@mmanico.com"
-                  className="text-sm hover:text-white transition-colors"
+                  className="text-sm hover:text-white transition-colors font-medium"
                 >
                   info@mmanico.com
                 </a>
@@ -81,7 +99,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>Quick Links</h3>
             <ul className="space-y-2">
               {footerLinks.pages.map((link) => (
                 <li key={link.name}>
@@ -98,7 +116,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
+            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>Legal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>

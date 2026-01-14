@@ -2,7 +2,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms of Use - M MANI & CO',
-  description: 'Terms and conditions for using M MANI & CO website',
+  description: 'Terms and conditions for using M MANI & CO website. Professional service terms and website usage guidelines.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/terms',
+  },
 };
 
 export default function TermsPage() {

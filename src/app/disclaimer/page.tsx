@@ -2,7 +2,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Disclaimer - M MANI & CO',
-  description: 'Important disclaimers and notices for M MANI & CO website',
+  description: 'Important disclaimers and notices for M MANI & CO website. ICAI compliance information and professional service disclaimers.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/disclaimer',
+  },
 };
 
 export default function DisclaimerPage() {

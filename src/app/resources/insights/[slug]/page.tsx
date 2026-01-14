@@ -572,7 +572,7 @@ const articles: Record<string, any> = {
         <li>Delays in finalizing accounts</li>
       </ul>
 
-      <p><em>Note: Audit requirements and procedures are governed by various laws and professional standards, which are subject to amendments. This article provides general educational information on statutory audit and should not be relied upon for specific compliance or audit-related decisions. Professional consultation is recommended for understanding audit applicability and requirements.</em></p>
+      <p><em>Note: Audit requirements and procedures are governed by various laws and regulatory requirements, which are subject to amendments. This article provides general educational information on statutory audit and should not be relied upon for specific compliance or audit-related decisions. Professional consultation is recommended for understanding audit applicability and requirements.</em></p>
     `,
   },
   'accounting-standards-sme': {

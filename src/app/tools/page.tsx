@@ -5,6 +5,15 @@ import PageHero from '@/components/PageHero';
 export const metadata: Metadata = {
   title: 'Tax & Compliance Tools - M MANI & CO',
   description: 'Privacy-first calculators and tools for income tax, GST, TDS, and compliance planning. All calculations happen locally in your browser.',
+  keywords: 'tax calculator, GST calculator, income tax calculator, TDS calculator, HRA calculator, tax tools, compliance tools',
+  openGraph: {
+    title: 'Tax & Compliance Tools - M MANI & CO',
+    description: 'Privacy-first calculators and tools for income tax, GST, TDS, and compliance planning',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/tools',
+  },
 };
 
 export default function ToolsPage() {

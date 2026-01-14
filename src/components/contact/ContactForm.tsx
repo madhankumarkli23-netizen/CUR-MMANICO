@@ -94,7 +94,8 @@ function ContactFormContent() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px' }}
             />
           </div>
 
@@ -109,7 +110,8 @@ function ContactFormContent() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px' }}
             />
           </div>
 
@@ -123,7 +125,8 @@ function ContactFormContent() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px' }}
             />
           </div>
 
@@ -136,7 +139,8 @@ function ContactFormContent() {
               name="service"
               value={formData.service}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px', minHeight: '44px' }}
             >
               <option value="">Select a category</option>
               {serviceCategories.map((category) => (
@@ -158,8 +162,9 @@ function ContactFormContent() {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 resize-none"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 resize-none text-base"
               placeholder="Please describe your enquiry..."
+              style={{ fontSize: '16px' }}
             />
           </div>
 
@@ -172,7 +177,8 @@ function ContactFormContent() {
               name="contactMode"
               value={formData.contactMode}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px', minHeight: '44px' }}
             >
               <option value="email">Email</option>
               <option value="phone">Phone Call</option>
@@ -191,13 +197,15 @@ function ContactFormContent() {
               value={formData.preferredTime}
               onChange={handleChange}
               placeholder="e.g., Weekday mornings, after 6 PM"
-              className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 text-base"
+              style={{ fontSize: '16px' }}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary-700 text-white py-3 rounded-md hover:bg-primary-800 transition-colors font-medium flex items-center justify-center"
+            className="w-full bg-primary-700 text-white py-3 rounded-md hover:bg-primary-800 active:bg-primary-900 transition-colors font-medium flex items-center justify-center touch-manipulation"
+            style={{ minHeight: '44px' }}
           >
             <Send className="w-5 h-5 mr-2" aria-hidden="true" />
             Send Enquiry

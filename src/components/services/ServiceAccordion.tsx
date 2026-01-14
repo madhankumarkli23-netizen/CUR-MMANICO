@@ -416,7 +416,7 @@ export default function ServiceAccordion() {
               }`}
             aria-expanded={openCategory === categoryIndex}
           >
-            <h2 className="text-xl md:text-2xl font-bold font-serif">
+            <h2 className="text-xl md:text-2xl font-bold" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
               {category.title}
             </h2>
             <ChevronDown
@@ -444,10 +444,10 @@ export default function ServiceAccordion() {
                     }
                   >
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-1">
+                      <h3 className="text-lg font-bold text-neutral-900 mb-1" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>
                         {service.name}
                       </h3>
-                      <p className="text-sm text-neutral-600">
+                      <p className="text-sm text-neutral-600" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.7' }}>
                         {service.description}
                       </p>
                     </div>

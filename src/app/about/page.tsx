@@ -3,8 +3,17 @@ import { Shield, Clock, Users, CheckCircle2 } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
-  title: 'About Us - M MANI & CO',
-  description: 'Professional chartered accountancy services in Bengaluru with focus on integrity, confidentiality, and due care.',
+  title: 'About Us - Chartered Accountants in Bengaluru | M MANI & CO',
+  description: 'Professional chartered accountancy firm in Bengaluru providing tax, audit, accounting, and compliance services. Learn about our practice, values, and approach to professional service delivery.',
+  keywords: 'about CA firm Bengaluru, chartered accountants Bengaluru, professional CA services, tax audit accounting firm',
+  openGraph: {
+    title: 'About Us - M MANI & CO Chartered Accountants',
+    description: 'Professional chartered accountancy firm in Bengaluru providing comprehensive tax, audit, accounting, and compliance services',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/about',
+  },
 };
 
 const values = [
@@ -46,29 +55,33 @@ export default function AboutPage() {
     <div className="bg-neutral-50 min-h-screen">
       {/* Hero Section */}
       <PageHero
-        title="About M MANI & CO"
-        subtitle="Professional chartered accountancy services in Bengaluru"
+        title="About Our Practice"
+        subtitle="Professional chartered accountancy services with focus on integrity, confidentiality, and due care"
       />
 
       {/* Firm Overview */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
               Firm Overview
             </h2>
 
-            <div className="prose prose-lg max-w-none text-neutral-700 space-y-4">
+            <div className="prose prose-lg max-w-none text-neutral-700 space-y-5">
               <p>
-                M MANI & CO provides professional services in the areas of taxation, audit, accounting, and regulatory compliance. The firm serves individuals, businesses, and organizations requiring support in meeting their statutory and financial obligations.
+                We are a professional chartered accountancy firm providing services across taxation, audit, accounting, and regulatory compliance domains. Our practice serves individuals, businesses, and organizations requiring support in meeting their statutory and financial obligations.
               </p>
 
               <p>
-                Our practice encompasses direct tax matters including income tax compliance and advisory, indirect tax services focused on GST, various categories of audit and assurance work, accounting and bookkeeping support, corporate law compliances under the Companies Act and other statutes, payroll administration, and business advisory services.
+                Our service portfolio encompasses direct tax compliance and advisory, indirect taxation (GST) services, statutory and internal audit, accounting and financial reporting, ROC and corporate law compliance, payroll and TDS management, and business advisory services.
               </p>
 
               <p>
-                The firm operates from Bengaluru and undertakes engagements across Karnataka and other parts of India. Services are rendered in accordance with applicable professional standards and regulatory requirements.
+                We operate from Bengaluru, Karnataka, and undertake engagements across India. All services are rendered in accordance with applicable laws, regulations, and regulatory requirements, including those prescribed by the Institute of Chartered Accountants of India (ICAI).
+              </p>
+
+              <p>
+                Our approach to professional practice emphasizes structured service delivery, systematic documentation, and adherence to professional ethics. We maintain strict confidentiality protocols and apply due care in all engagements.
               </p>
             </div>
           </div>
@@ -76,13 +89,16 @@ export default function AboutPage() {
       </section>
 
       {/* Professional Values */}
-      <section className="py-16 md:py-20 bg-neutral-50">
+      <section className="section-padding bg-gradient-to-b from-neutral-50 to-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          <div className="section-heading">
+            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
+              <span className="text-sm font-semibold text-primary-800">Our Values</span>
+            </div>
+            <h2 className="section-title">
               Professional Values
             </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="section-subtitle">
               Our approach to professional practice is guided by these core principles.
             </p>
           </div>
@@ -93,15 +109,15 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-6 text-center shadow-sm border border-neutral-200"
+                  className="group bg-white rounded-xl p-6 text-center shadow-sm border-2 border-neutral-200 hover:shadow-lg hover:border-primary-200 hover:-translate-y-1 transition-all duration-300 bg-gradient-to-br from-white to-neutral-50/30"
                 >
-                  <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary-700" aria-hidden="true" />
+                  <div className="bg-gradient-to-br from-primary-100 to-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary-200 group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                    <Icon className="w-8 h-8 text-primary-700 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-neutral-600">
+                  <p className="text-sm text-neutral-600 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -135,10 +151,10 @@ export default function AboutPage() {
       </section>
 
       {/* Geographic Reach */}
-      <section className="py-16 md:py-20 bg-neutral-50">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
               Geographic Reach
             </h2>
             <p className="text-lg text-neutral-700 leading-relaxed">
@@ -148,13 +164,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Professional Standards Notice */}
+      {/* Service Delivery Framework Notice */}
       <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto bg-neutral-50 rounded-lg p-8 border border-neutral-200">
-            <p className="text-sm text-neutral-600 leading-relaxed">
-              <strong className="text-neutral-900">Professional Standards:</strong> All services are provided subject to acceptance of engagement terms and in accordance with applicable professional standards, including those prescribed by the Institute of Chartered Accountants of India (ICAI). Engagement acceptance is at the firm&apos;s discretion based on competence, independence, and conflict assessment.
-            </p>
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-neutral-50 to-white rounded-xl p-8 border-2 border-neutral-200 shadow-sm">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 p-2 bg-primary-100 rounded-lg">
+                <Shield className="w-6 h-6 text-primary-700" aria-hidden="true" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-neutral-900 mb-3">
+                  Service Delivery Framework
+                </h3>
+                <p className="text-sm text-neutral-700 leading-relaxed mb-3">
+                  Our professional services are delivered through a structured framework that ensures quality, compliance, and client confidentiality. Each engagement is subject to formal acceptance procedures, including assessment of our technical competence, professional independence, and potential conflicts of interest.
+                </p>
+                <p className="text-sm text-neutral-700 leading-relaxed">
+                  All work is performed in compliance with applicable laws, regulations, and regulatory requirements. Service scope, deliverables, timelines, and terms are established through written engagement documentation prior to commencement of work.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

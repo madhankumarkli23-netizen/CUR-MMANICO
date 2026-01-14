@@ -2,7 +2,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - M MANI & CO',
-  description: 'Privacy policy and data protection practices for M MANI & CO website',
+  description: 'Privacy policy and data protection practices for M MANI & CO website. Information on how we handle client data and website visitor information.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/privacy',
+  },
 };
 
 export default function PrivacyPage() {

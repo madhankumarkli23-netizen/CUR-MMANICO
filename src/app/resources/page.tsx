@@ -1,6 +1,5 @@
 'use client';
 
-import { Metadata } from 'next';
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import UpdatesTab from '@/components/resources/UpdatesTab';

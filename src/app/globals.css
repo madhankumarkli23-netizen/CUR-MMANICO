@@ -6,21 +6,114 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
+    /* iOS Safe Area Insets */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
   }
 
   * {
     @apply border-neutral-200;
   }
 
+  html {
+    scroll-behavior: smooth;
+    /* Prevent iOS bounce scrolling issues */
+    overscroll-behavior-y: none;
+    /* Consistent text rendering across platforms */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Prevent font boosting on mobile browsers */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Performance optimizations */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Performance optimizations for scrolling */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* GPU acceleration for animated elements - Optimized */
+  [class*="animate-"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .card,
+  .card-hover {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Optimize sections for faster rendering */
+  section {
+    contain: layout style;
+    content-visibility: auto;
+  }
+
+  /* Lazy load animations - only animate when visible */
+  @supports (animation-timeline: scroll()) {
+    section {
+      animation-timeline: scroll();
+    }
+  }
+
+  /* Reduce animation complexity on mobile - Faster */
+  @media (max-width: 768px) {
+    [class*="animate-"] {
+      animation-duration: 0.4s !important;
+    }
+    
+    .blur-3xl {
+      filter: blur(30px) !important;
+    }
+    
+    .blur-2xl {
+      filter: blur(20px) !important;
+    }
+
+    /* Disable heavy animations on mobile */
+    [class*="float"] {
+      animation: none !important;
+      opacity: 0.3 !important;
+    }
+  }
+
+  /* Fast loading - reduce initial animations */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Only animate if user prefers motion */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
   body {
     @apply bg-white text-neutral-900;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Prevent text selection issues on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Consistent touch behavior */
+    touch-action: manipulation;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior-y: contain;
+    /* Safe area padding for iOS */
+    padding-top: var(--safe-area-inset-top);
+    padding-right: var(--safe-area-inset-right);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
+  /* Unified Typography System */
   h1,
   h2,
   h3,
@@ -28,7 +121,82 @@
   h5,
   h6 {
     font-family: var(--font-serif-pro), Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: #0f172a;
+    /* Prevent font size adjustment on iOS */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+
+  p {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #475569;
+    font-weight: 400;
+  }
+
+  /* Body text improvements */
+  body {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1e293b;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Small text */
+  small,
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Large text */
+  .text-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* Extra large text */
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-weight: 400;
   }
 }
 
@@ -39,24 +207,170 @@
 
   .container-custom {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    /* Ensure consistent padding on all devices */
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 
-  /* Conservative Button Styles */
-  .btn-primary {
-    @apply rounded-md border border-primary-700 bg-primary-700 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-800 transition-colors;
+  /* Section Spacing Utility */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
   }
+
+  /* Consistent Section Headings */
+  .section-heading {
+    @apply text-center mb-12 md:mb-16;
+  }
+
+  .section-title {
+    font-family: var(--font-serif-pro), Georgia, serif;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .section-subtitle {
+    font-family: var(--font-inter), sans-serif;
+    @apply text-base md:text-lg text-neutral-600 max-w-2xl mx-auto;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* Typography Utilities */
+  .font-heading {
+    font-family: var(--font-serif-pro), Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .font-body {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 400;
+  }
+
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  /* Touch-friendly utility class */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Safe area utilities */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
 
   .btn-secondary {
-    @apply rounded-md border border-neutral-300 bg-white px-6 py-2.5 text-sm font-medium text-neutral-700 shadow-sm hover:bg-neutral-50 transition-colors;
+    @apply rounded-xl border-2 border-neutral-300 bg-white px-8 py-3.5 text-sm font-bold text-neutral-700 shadow-md hover:bg-gradient-to-br hover:from-neutral-50 hover:to-white hover:border-primary-400 hover:shadow-xl active:scale-95 transition-all duration-200 touch-manipulation;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Professional Card Styles */
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 73, 146, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .btn-secondary:hover::before {
+    opacity: 1;
+  }
+
+  /* Enhanced Card Styles - More Beautiful */
   .card {
-    @apply rounded-md border border-neutral-200 bg-white;
+    @apply rounded-xl border-2 border-neutral-200 bg-white shadow-md;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
   }
 
   .card-hover {
-    @apply transition-shadow hover:shadow-md;
+    @apply transition-all duration-200;
+    will-change: transform;
+  }
+
+  .card-hover:hover {
+    @apply shadow-2xl border-primary-300;
+    transform: translateY(-4px) translateZ(0);
+  }
+
+  /* Enhanced button styles globally */
+  .btn-primary {
+    @apply rounded-xl border-2 border-primary-700 bg-gradient-to-r from-primary-700 via-primary-700 to-primary-800 px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:shadow-2xl hover:shadow-primary-900/50 hover:from-primary-800 hover:via-primary-800 hover:to-primary-900 active:scale-95 transition-all duration-200 touch-manipulation;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  /* Enhanced Modern Input Styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    @apply rounded-xl border-2 border-neutral-300 bg-white px-5 py-3.5 text-sm text-neutral-900 placeholder-neutral-400 transition-all duration-200 shadow-sm;
+    @apply focus:border-primary-500 focus:ring-2 focus:ring-primary-200/50 focus:outline-none focus:shadow-lg;
+    @apply hover:border-neutral-400 hover:shadow-md;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="number"]:focus,
+  textarea:focus,
+  select:focus {
+    @apply shadow-xl;
+    transform: translateY(-1px);
   }
 
   /* Gradient Text */
@@ -71,12 +385,10 @@
 
   /* Animated Gradient Background */
   @keyframes gradient-shift {
-
     0%,
     100% {
       background-position: 0% 50%;
     }
-
     50% {
       background-position: 100% 50%;
     }
@@ -102,17 +414,126 @@
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px) translateX(0px);
+      transform: translate3d(0, 0, 0);
       opacity: 0.2;
     }
     50% {
-      transform: translateY(-20px) translateX(10px);
+      transform: translate3d(10px, -20px, 0);
+      opacity: 0.5;
+    }
+  }
+
+  /* Enhanced float animation for better performance */
+  @keyframes float-smooth {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) translateY(0px);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate3d(0, 0, 0) translateY(-20px);
       opacity: 0.6;
     }
   }
 
   .bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+
+  /* Slide down animation for mobile menu */
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+
+  /* Optimized Fade in up animation - Faster loading with smooth effect */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
+  /* Enhanced pulse animation for better visual appeal */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Optimized Fade in animation - Faster */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+    will-change: opacity;
+  }
+
+  /* Respect user preferences for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Delay utilities */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  /* Appointment Button Styles */
+  .appointment-button {
+    background: linear-gradient(135deg, #d4af37 0%, #b08d26 100%);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  }
+
+  .appointment-button:hover {
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
   }
 }
 
@@ -150,6 +571,7 @@ button {
   will-change: transform, opacity;
 }
 
+/* Cross-Platform Color Consistency */
 /* iOS Color Space Fix - Force sRGB for consistent color rendering */
 @supports (color: color(display-p3 1 1 1)) {
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -166,8 +588,135 @@ button {
   }
 }
 
+/* Android Chrome color consistency */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  html {
+    color-scheme: light;
+  }
+}
+
 /* Ensure institutional blue renders consistently across all devices */
 .bg-institutional-blue {
   background-color: rgb(0, 73, 146) !important;
   background-color: color(srgb 0 0.286 0.573) !important;
+}
+
+/* Mobile-Specific Touch Targets */
+/* Ensure all interactive elements meet minimum touch target size (44x44px) */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+  /* Better touch feedback */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Small buttons exception - but ensure they have adequate padding */
+.btn-small {
+  min-height: 36px;
+  padding: 8px 16px;
+}
+
+/* Consistent spacing across devices */
+@media (max-width: 640px) {
+  /* Ensure consistent padding on mobile */
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Consistent font rendering on mobile */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Prevent iOS callout menu */
+  * {
+    -webkit-touch-callout: none;
+  }
+  
+  /* Allow callout on text inputs */
+  input,
+  textarea {
+    -webkit-touch-callout: default;
+  }
+  
+  /* Fix iOS input zoom on focus */
+  @media screen and (max-width: 768px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Android Chrome specific fixes */
+@media screen and (max-width: 768px) {
+  /* Prevent Android Chrome address bar from affecting layout */
+  html {
+    height: -webkit-fill-available;
+  }
+  
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Consistent border radius across platforms */
+button,
+.btn-primary,
+.btn-secondary,
+.card,
+input,
+select,
+textarea {
+  border-radius: 0.375rem; /* 6px - consistent across all devices */
+}
+
+/* Prevent text selection on UI elements (but allow on content) */
+button,
+.btn-primary,
+.btn-secondary,
+nav a {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Consistent shadow rendering */
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl {
+  /* Ensure shadows render consistently */
+  will-change: transform;
+}
+
+/* Fix for iOS Safari viewport height issue */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+  
+  .h-screen {
+    height: -webkit-fill-available;
+  }
 }

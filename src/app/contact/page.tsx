@@ -4,8 +4,17 @@ import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - M MANI & CO',
-  description: 'Get in touch with M MANI & CO for professional chartered accountancy services. Located in Bengaluru, Karnataka.',
+  title: 'Contact Us - Chartered Accountants in Bengaluru | M MANI & CO',
+  description: 'Contact M MANI & CO for professional chartered accountancy services. Located in Bengaluru, Karnataka. Enquiries regarding tax, audit, accounting, and compliance services.',
+  keywords: 'contact CA firm Bengaluru, chartered accountant contact, CA firm Bengaluru address, tax consultant Bengaluru',
+  openGraph: {
+    title: 'Contact Us - M MANI & CO Chartered Accountants',
+    description: 'Contact M MANI & CO for professional chartered accountancy services in Bengaluru, Karnataka',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://cur-mmanico.vercel.app/contact',
+  },
 };
 
 export default function ContactPage() {
@@ -18,12 +27,12 @@ export default function ContactPage() {
       />
 
       {/* Contact Content */}
-      <section className="py-16 bg-white">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
             <div>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                 Contact Information
               </h2>
 
@@ -86,8 +95,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-10 bg-neutral-50 rounded-lg p-6 border border-neutral-200">
-                <h3 className="font-semibold text-neutral-900 mb-3">Important Notice</h3>
+              <div className="mt-10 bg-gradient-to-br from-neutral-50 to-white rounded-xl p-6 border-2 border-neutral-200 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 text-primary-700" />
+                  </div>
+                  <h3 className="font-bold text-lg text-neutral-900">Important Notice</h3>
+                </div>
                 <p className="text-sm text-neutral-600 leading-relaxed">
                   Enquiries do not constitute engagement acceptance or create any professional relationship. All professional services are subject to formal engagement terms and conditions. We assess each enquiry for competence, independence, and conflict considerations before accepting any engagement.
                 </p>

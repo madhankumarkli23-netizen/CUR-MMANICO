@@ -1,0 +1,23 @@
+# robots.txt for M MANI & CO Chartered Accountants Website
+# https://cur-mmanico.vercel.app
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas if any
+Disallow: /api/
+Disallow: /_next/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /resources
+Allow: /tools
+Allow: /contact
+
+# Sitemap location
+Sitemap: https://cur-mmanico.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
