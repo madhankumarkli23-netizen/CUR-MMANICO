@@ -143,10 +143,10 @@ export default function AppointmentBookingModal({ isOpen, onClose }: Appointment
               </div>
               <h3 className="text-2xl font-bold text-neutral-900 mb-3">Appointment Request Sent!</h3>
               <p className="text-neutral-600 mb-2">
-                We've received your appointment request and sent it to <strong>info@mmanico.com</strong>
+                We&apos;ve received your appointment request and sent it to <strong>info@mmanico.com</strong>
               </p>
               <p className="text-sm text-neutral-500">
-                We'll review your request and confirm availability. You'll receive a response shortly.
+                We&apos;ll review your request and confirm availability. You&apos;ll receive a response shortly.
               </p>
             </div>
           ) : (
