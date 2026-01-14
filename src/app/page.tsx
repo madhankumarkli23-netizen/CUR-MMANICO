@@ -141,7 +141,7 @@ export default function HomePage() {
       <ServiceGrid />
 
       {/* How Engagement Works */}
-      <section className="py-16 md:py-20 bg-neutral-50">
+      <section className="py-12 md:py-16 bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
