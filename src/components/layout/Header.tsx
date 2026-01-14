@@ -41,19 +41,20 @@ export default function Header() {
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1rem' }}>
+        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1.5rem', alignItems: 'center' }}>
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
-            className="flex items-start group flex-shrink-0"
+            className="flex items-center group flex-shrink-0"
             aria-label="M MANI & CO Home"
-            style={{ gap: 0, alignItems: 'flex-start', maxWidth: 'calc(100% - 200px)' }}
+            style={{ gap: 0, alignItems: 'center', maxWidth: 'calc(100% - 250px)' }}
           >
             {/* CA Logo - Matching Full Text Block Height - Responsive */}
-            <div className="relative flex-shrink-0" style={{ 
+            <div className="relative flex-shrink-0 flex items-center" style={{ 
               width: 'clamp(60px, 12vw, 85px)', 
-              height: 'clamp(70px, 14vw, 95px)', 
-              marginRight: 'clamp(-8px, -1vw, -8px)'
+              height: 'clamp(60px, 12vw, 85px)', 
+              marginRight: 'clamp(-8px, -1vw, -8px)',
+              alignSelf: 'center'
             }}>
               <img
                 src="/ca-india-logo.png"
@@ -63,17 +64,16 @@ export default function Header() {
                   display: 'block',
                   objectFit: 'contain',
                   width: '100%',
-                  height: '100%',
-                  objectPosition: 'top'
+                  height: '100%'
                 }}
               />
             </div>
 
             {/* Firm Name Stack - Tighter spacing - Responsive */}
-            <div className="flex flex-col justify-start leading-none flex-shrink-0" style={{ 
+            <div className="flex flex-col justify-center leading-none flex-shrink-0" style={{ 
               gap: '0.05rem', 
               marginLeft: 'clamp(-6px, -1vw, -6px)',
-              alignSelf: 'flex-start'
+              alignSelf: 'center'
             }}>
               {/* Primary: M Mani & Co - Larger Size - Responsive */}
               <span
@@ -111,7 +111,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 flex-shrink-0">
+          <div className="hidden md:flex items-center space-x-2 flex-shrink-0" style={{ alignItems: 'center' }}>
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -134,11 +134,11 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-3 rounded-md transition-colors text-primary-900 hover:bg-neutral-100 touch-manipulation"
+            className="md:hidden p-3 rounded-md transition-colors text-primary-900 hover:bg-neutral-100 touch-manipulation flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
-            style={{ minWidth: '44px', minHeight: '44px' }}
+            style={{ minWidth: '44px', minHeight: '44px', alignSelf: 'center' }}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
