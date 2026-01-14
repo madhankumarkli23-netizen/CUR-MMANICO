@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://cur-mmanico.vercel.app/terms',
+    canonical: 'https://manicoca.com/terms',
   },
 };
 

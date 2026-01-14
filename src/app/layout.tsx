@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "M MANI & CO" }],
   creator: "M MANI & CO",
   publisher: "M MANI & CO",
-  metadataBase: new URL('https://cur-mmanico.vercel.app'),
+  metadataBase: new URL('https://manicoca.com'),
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "M MANI & CO - Chartered Accountants",
     title: "Chartered Accountants in Bengaluru | Tax, Audit & Compliance - M MANI & CO",
     description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.",
-    url: "https://cur-mmanico.vercel.app",
+    url: "https://manicoca.com",
     // Add Open Graph image when available
     // images: [
     //   {
@@ -76,11 +76,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://cur-mmanico.vercel.app",
+    canonical: "https://manicoca.com",
   },
   verification: {
     // Add verification codes when available
-    // google: 'your-google-verification-code',
+    // After setting up Google Search Console, add: google: 'your-google-verification-code',
     // yandex: 'your-yandex-verification-code',
     // yahoo: 'your-yahoo-verification-code',
   },

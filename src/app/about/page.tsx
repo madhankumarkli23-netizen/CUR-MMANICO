@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://cur-mmanico.vercel.app/about',
+    canonical: 'https://manicoca.com/about',
   },
 };
 

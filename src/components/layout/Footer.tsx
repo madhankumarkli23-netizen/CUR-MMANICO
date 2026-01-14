@@ -70,7 +70,19 @@ export default function Footer() {
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
                   <MapPin className="w-5 h-5 text-white flex-shrink-0" aria-hidden="true" />
                 </div>
-                <span className="text-sm pt-2">Bengaluru, Karnataka</span>
+                <address className="text-sm pt-2 not-italic leading-relaxed">
+                  <p className="mb-0.5">Muji Square, 5th Floor</p>
+                  <p className="mb-0.5">No. 164, 9th Main Road, HSR Layout</p>
+                  <p className="mb-0.5">Bengaluru - 560102, Karnataka</p>
+                  <a
+                    href="https://g.page/m-mani-co"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-300 hover:text-white text-xs font-medium mt-1 inline-block transition-colors"
+                  >
+                    View on Google Maps →
+                  </a>
+                </address>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">

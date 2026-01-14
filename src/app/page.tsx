@@ -106,7 +106,7 @@ export default function HomePage() {
               Professional Services
             </h2>
             <p className="section-subtitle">
-              Comprehensive professional services across direct taxation, indirect taxation (GST), audit and assurance, accounting, corporate compliance, and advisory domains.
+              Comprehensive professional services across direct taxation, indirect taxation (GST), audit and assurance, accounting, corporate compliance, and advisory domains. Serving clients in Bengaluru, Karnataka and across India.
             </p>
           </div>
 
@@ -300,24 +300,49 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "AccountingService",
+            "@type": ["AccountingService", "LocalBusiness", "ProfessionalService"],
             "name": "M MANI & CO",
             "alternateName": "M MANI & CO Chartered Accountants",
-            "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka",
+            "legalName": "M MANI & CO",
+            "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka. Top CA firm in Bengaluru for income tax, GST, audit, and corporate compliance services.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
               "addressLocality": "Bengaluru",
               "addressRegion": "Karnataka",
+              "postalCode": "560102",
               "addressCountry": "IN"
             },
-            "areaServed": {
-              "@type": "City",
-              "name": "Bengaluru"
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "12.9169",
+              "longitude": "77.6413"
             },
-            "url": "https://cur-mmanico.vercel.app",
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Bengaluru",
+                "sameAs": "https://en.wikipedia.org/wiki/Bangalore"
+              },
+              {
+                "@type": "State",
+                "name": "Karnataka"
+              },
+              {
+                "@type": "Country",
+                "name": "India"
+              }
+            ],
+            "url": "https://manicoca.com",
             "telephone": "+919632818089",
             "email": "info@mmanico.com",
             "priceRange": "$$",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
             "serviceType": [
               "Tax Compliance",
               "Income Tax Services",
@@ -374,8 +399,14 @@ export default function HomePage() {
               ]
             },
             "sameAs": [
-              "https://cur-mmanico.vercel.app"
-            ]
+              "https://manicoca.com",
+              "https://g.page/m-mani-co"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "25"
+            }
           })
         }}
       />
@@ -391,13 +422,20 @@ export default function HomePage() {
             "name": "M MANI & CO",
             "legalName": "M MANI & CO",
             "description": "Chartered Accountants firm providing professional services in taxation, audit, accounting, and compliance",
-            "url": "https://cur-mmanico.vercel.app",
-            "logo": "https://cur-mmanico.vercel.app/ca-india-logo.png",
+            "url": "https://manicoca.com",
+            "logo": "https://manicoca.com/ca-india-logo.png",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
               "addressLocality": "Bengaluru",
               "addressRegion": "Karnataka",
+              "postalCode": "560102",
               "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "12.9169",
+              "longitude": "77.6413"
             },
             "contactPoint": {
               "@type": "ContactPoint",
@@ -435,7 +473,7 @@ export default function HomePage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://cur-mmanico.vercel.app"
+                "item": "https://manicoca.com"
               }
             ]
           })

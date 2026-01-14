@@ -4,16 +4,16 @@ import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Chartered Accountants in Bengaluru | M MANI & CO',
-  description: 'Contact M MANI & CO for professional chartered accountancy services. Located in Bengaluru, Karnataka. Enquiries regarding tax, audit, accounting, and compliance services.',
-  keywords: 'contact CA firm Bengaluru, chartered accountant contact, CA firm Bengaluru address, tax consultant Bengaluru',
+  title: 'Contact Us - Chartered Accountants in Bengaluru HSR Layout | M MANI & CO',
+  description: 'Contact M MANI & CO for professional chartered accountancy services. Located at Muji Square, 5th Floor, HSR Layout, Bengaluru - 560102, Karnataka. Enquiries regarding tax, audit, accounting, and compliance services.',
+  keywords: 'contact CA firm Bengaluru, chartered accountant contact HSR Layout, CA firm Bengaluru address, tax consultant Bengaluru HSR Layout, CA firm near me, chartered accountants HSR Layout',
   openGraph: {
     title: 'Contact Us - M MANI & CO Chartered Accountants',
     description: 'Contact M MANI & CO for professional chartered accountancy services in Bengaluru, Karnataka',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://cur-mmanico.vercel.app/contact',
+    canonical: 'https://manicoca.com/contact',
   },
 };
 
@@ -42,8 +42,25 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-primary-700" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-900 mb-1">Location</h3>
-                    <p className="text-neutral-600">Bengaluru, Karnataka</p>
+                    <h3 className="font-semibold text-neutral-900 mb-1">Office Address</h3>
+                    <address className="text-neutral-600 not-italic leading-relaxed">
+                      <p className="mb-1">Muji Square, 5th Floor</p>
+                      <p className="mb-1">No. 164, 9th Main Road</p>
+                      <p className="mb-1">HSR Layout</p>
+                      <p className="mb-1">Bengaluru - 560102</p>
+                      <p>Karnataka, India</p>
+                    </address>
+                    <a
+                      href="https://g.page/m-mani-co"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-700 hover:text-primary-800 text-sm font-medium mt-2 inline-flex items-center gap-1 transition-colors"
+                    >
+                      View on Google Maps
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
 
