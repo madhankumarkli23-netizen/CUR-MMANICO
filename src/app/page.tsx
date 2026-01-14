@@ -289,16 +289,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* JSON-LD Schema */}
+      {/* Enhanced JSON-LD Schema for SEO */}
       <Script
         id="schema-local-business"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ProfessionalService",
+            "@type": "AccountingService",
             "name": "M MANI & CO",
-            "description": "Chartered Accountancy firm providing tax, audit, accounting, and compliance services",
+            "alternateName": "M MANI & CO Chartered Accountants",
+            "description": "ICAI registered chartered accountancy firm providing professional tax, audit, accounting, and compliance services in Bengaluru, Karnataka",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Bengaluru",
@@ -309,15 +310,62 @@ export default function HomePage() {
               "@type": "City",
               "name": "Bengaluru"
             },
-            "url": "https://mmanico-website.vercel.app",
+            "url": "https://cur-mmanico.vercel.app",
             "priceRange": "$$",
             "serviceType": [
               "Tax Compliance",
-              "Audit Services",
-              "Accounting Services",
+              "Income Tax Services",
               "GST Compliance",
-              "Corporate Compliance"
-            ]
+              "Audit Services",
+              "Statutory Audit",
+              "Tax Audit",
+              "Accounting Services",
+              "Corporate Compliance",
+              "ROC Compliance",
+              "TDS Compliance"
+            ],
+            "credential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "ICAI Registration",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "Institute of Chartered Accountants of India"
+              }
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Chartered Accountancy Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Income Tax Compliance & Advisory"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "GST Compliance Services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Audit & Assurance Services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Corporate & ROC Compliance"
+                  }
+                }
+              ]
+            }
           })
         }}
       />
