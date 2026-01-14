@@ -63,35 +63,31 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       }
     }
     // Option 2: Nodemailer (SMTP/Gmail) - Optional dependency
+    // Note: Install with 'npm install nodemailer' if using SMTP
     else if (process.env.SMTP_HOST && process.env.SMTP_USER) {
       try {
-        // Use eval to prevent webpack from trying to resolve at build time
-        const nodemailerModule = await new Function('return import("nodemailer")')().catch(() => null);
-        if (!nodemailerModule) {
-          console.warn('Nodemailer not installed. Install with: npm install nodemailer');
-        } else {
-          const nodemailer = nodemailerModule.default || nodemailerModule;
-          const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: process.env.SMTP_PORT === '465',
-            auth: {
-              user: process.env.SMTP_USER,
-              pass: process.env.SMTP_PASS,
-            },
-          });
-          
-          await transporter.sendMail({
-            from: process.env.SMTP_FROM || process.env.SMTP_USER,
-            to: recipientEmail,
-            subject: emailSubject,
-            text: emailBody,
-            html: emailBody.replace(/\n/g, '<br>'),
-          });
-          emailSent = true;
-        }
+        // Dynamic import with proper error handling
+        const nodemailer = await import('nodemailer');
+        const transporter = nodemailer.default.createTransport({
+          host: process.env.SMTP_HOST,
+          port: parseInt(process.env.SMTP_PORT || '587'),
+          secure: process.env.SMTP_PORT === '465',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+          },
+        });
+        
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER,
+          to: recipientEmail,
+          subject: emailSubject,
+          text: emailBody,
+          html: emailBody.replace(/\n/g, '<br>'),
+        });
+        emailSent = true;
       } catch (emailError: any) {
-        if (emailError?.code === 'MODULE_NOT_FOUND') {
+        if (emailError?.code === 'MODULE_NOT_FOUND' || emailError?.message?.includes('Cannot find module')) {
           console.warn('Nodemailer not installed. Install with: npm install nodemailer');
         } else {
           console.error('Nodemailer email error:', emailError);
@@ -99,27 +95,23 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       }
     }
     // Option 3: SendGrid - Optional dependency
+    // Note: Install with 'npm install @sendgrid/mail' if using SendGrid
     else if (process.env.SENDGRID_API_KEY) {
       try {
-        // Use eval to prevent webpack from trying to resolve at build time
-        const sgMailModule = await new Function('return import("@sendgrid/mail")')().catch(() => null);
-        if (!sgMailModule) {
-          console.warn('SendGrid not installed. Install with: npm install @sendgrid/mail');
-        } else {
-          const sgMail = sgMailModule.default || sgMailModule;
-          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-          
-          await sgMail.send({
-            to: recipientEmail,
-            from: process.env.SENDGRID_FROM_EMAIL || 'website@mmanico.com',
-            subject: emailSubject,
-            text: emailBody,
-            html: emailBody.replace(/\n/g, '<br>'),
-          });
-          emailSent = true;
-        }
+        // Dynamic import with proper error handling
+        const sgMail = await import('@sendgrid/mail');
+        sgMail.default.setApiKey(process.env.SENDGRID_API_KEY);
+        
+        await sgMail.default.send({
+          to: recipientEmail,
+          from: process.env.SENDGRID_FROM_EMAIL || 'website@mmanico.com',
+          subject: emailSubject,
+          text: emailBody,
+          html: emailBody.replace(/\n/g, '<br>'),
+        });
+        emailSent = true;
       } catch (emailError: any) {
-        if (emailError?.code === 'MODULE_NOT_FOUND') {
+        if (emailError?.code === 'MODULE_NOT_FOUND' || emailError?.message?.includes('Cannot find module')) {
           console.warn('SendGrid not installed. Install with: npm install @sendgrid/mail');
         } else {
           console.error('SendGrid email error:', emailError);
