@@ -109,8 +109,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${sourceSerif.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/ca-india-logo.png" />
-        <link rel="apple-touch-icon" href="/ca-india-logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/ca-india-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/ca-india-logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/ca-india-logo.png" />
+        <link rel="shortcut icon" href="/ca-india-logo.png" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
