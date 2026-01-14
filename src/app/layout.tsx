@@ -26,7 +26,7 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: "Chartered Accountants in Bengaluru | Tax, Audit & Compliance - M MANI & CO",
-  description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. Trusted CA firm with expertise in tax planning, audit, and compliance.",
+  description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. Chartered accountancy services in tax planning, audit, and compliance.",
   keywords: "chartered accountants Bengaluru, CA firm Bengaluru, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka, chartered accountancy firm",
   authors: [{ name: "M MANI & CO" }],
   creator: "M MANI & CO",

@@ -259,7 +259,7 @@ const Hero = () => {
                                 {/* Header Section with Enhanced Typography */}
                                 <div className="relative">
                                     <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent group-hover:from-white group-hover:via-accent group-hover:to-white transition-all duration-500">
-                                        Why Clients Choose Us
+                                        Service Characteristics
                                     </h3>
                                     <div className="flex items-center gap-2">
                                         <div className="w-20 h-1.5 bg-gradient-to-r from-accent to-accent/50 rounded-full group-hover:w-24 transition-all duration-300" />
