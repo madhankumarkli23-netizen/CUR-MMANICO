@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Send, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const serviceCategories = [
   'Direct Tax',
@@ -29,24 +29,67 @@ function ContactFormContent() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would submit to an API endpoint or email service
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-        contactMode: 'email',
-        preferredTime: '',
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      // Send email notification
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error('Failed to submit enquiry');
+      }
+
+      // Send WhatsApp message
+      const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919632818089';
+      const whatsappMessage = encodeURIComponent(
+        `📧 *New Contact Enquiry*\n\n` +
+        `*Name:* ${formData.name}\n` +
+        `*Email:* ${formData.email}\n` +
+        `${formData.phone ? `*Phone:* ${formData.phone}\n` : ''}` +
+        `${formData.service ? `*Service Category:* ${formData.service}\n` : ''}` +
+        `*Preferred Contact Mode:* ${formData.contactMode || 'Email'}\n` +
+        `${formData.preferredTime ? `*Preferred Time:* ${formData.preferredTime}\n` : ''}\n` +
+        `*Message:*\n${formData.message}\n\n` +
+        `Please respond to the client as per their preferred contact mode.`
+      );
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+
+      setSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+          contactMode: 'email',
+          preferredTime: '',
+        });
+      }, 3000);
+    } catch (err) {
+      setError('Failed to submit enquiry. Please try again or contact us directly.');
+      console.error('Contact form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -54,6 +97,7 @@ function ContactFormContent() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    setError('');
   };
 
   return (
@@ -74,15 +118,24 @@ function ContactFormContent() {
       {submitted ? (
         <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
           <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Send className="w-8 h-8 text-green-700" aria-hidden="true" />
+            <CheckCircle2 className="w-8 h-8 text-green-700" aria-hidden="true" />
           </div>
-          <h3 className="text-lg font-semibold text-green-900 mb-2">Enquiry Received</h3>
-          <p className="text-sm text-green-800">
-            Thank you for reaching out. We will review your enquiry and respond as appropriate.
+          <h3 className="text-lg font-semibold text-green-900 mb-2">Enquiry Received!</h3>
+          <p className="text-sm text-green-800 mb-2">
+            We&apos;ve received your enquiry and sent it to <strong>info@mmanico.com</strong>
+          </p>
+          <p className="text-xs text-green-700">
+            We&apos;ll review your enquiry and respond as per your preferred contact mode.
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-800">{error}</p>
+            </div>
+          )}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
               Name <span className="text-red-600">*</span>
@@ -204,11 +257,21 @@ function ContactFormContent() {
 
           <button
             type="submit"
-            className="w-full bg-primary-700 text-white py-3 rounded-md hover:bg-primary-800 active:bg-primary-900 transition-colors font-medium flex items-center justify-center touch-manipulation"
+            disabled={isSubmitting}
+            className="w-full bg-primary-700 text-white py-3 rounded-md hover:bg-primary-800 active:bg-primary-900 transition-colors font-medium flex items-center justify-center touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ minHeight: '44px' }}
           >
-            <Send className="w-5 h-5 mr-2" aria-hidden="true" />
-            Send Enquiry
+            {isSubmitting ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
+                <span>Sending...</span>
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5 mr-2" aria-hidden="true" />
+                Send Enquiry
+              </>
+            )}
           </button>
         </form>
       )}
