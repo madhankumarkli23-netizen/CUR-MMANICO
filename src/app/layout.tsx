@@ -33,7 +33,10 @@ export const metadata: Metadata = {
   publisher: "M MANI & CO",
   metadataBase: new URL('https://cur-mmanico.vercel.app'),
   icons: {
-    icon: '/icon.png',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
     shortcut: '/icon.png',
     apple: '/icon.png',
   },
@@ -104,6 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${sourceSerif.variable}`}>
       <head>
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <link rel="icon" type="image/png" href="/icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
