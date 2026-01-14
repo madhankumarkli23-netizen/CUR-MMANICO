@@ -35,41 +35,31 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isScrolled
-        ? 'bg-white/95 backdrop-blur-md shadow-lg py-2'
-        : 'bg-transparent py-4'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white shadow-md py-3`}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className={`flex items-center justify-between transition-all duration-200 ${isScrolled ? 'h-16' : 'h-20'
-          }`}>
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-3 md:gap-4 group"
             aria-label="M MANI & CO Home"
           >
-            <div className="flex items-center gap-3 md:gap-4">
-              <div className={`relative flex-shrink-0 rounded-lg border transition-all duration-200 ${isScrolled
-                ? 'h-12 w-12 md:h-14 md:w-14 border-neutral-200 bg-white shadow-sm'
-                : 'h-14 w-14 md:h-16 md:w-16 border-white/40 bg-white/20 shadow'
-                }`}>
+            <div className="flex items-center gap-1.5">
+              <div className="relative h-7 w-7 md:h-8 md:w-8 flex-shrink-0">
                 <Image
-                  src="/ca-logo-final.png"
+                  src="/ca-india-logo.png"
                   alt="CA Logo"
                   fill
-                  sizes="64px"
-                  className={`object-contain transition-all duration-200 ${isScrolled ? 'brightness-0 opacity-90' : 'brightness-0 invert'}`}
+                  sizes="32px"
+                  className="object-contain"
                   priority
                 />
               </div>
 
               <div className="flex flex-col leading-tight">
                 <span
-                  className={`font-bold tracking-tight transition-all duration-200 ${isScrolled
-                    ? 'text-xl md:text-2xl text-primary-900'
-                    : 'text-2xl md:text-3xl text-white'
-                    }`}
+                  className="text-base md:text-lg font-bold tracking-tight text-primary-900"
                   style={{
                     fontFamily: 'var(--font-serif-pro), serif',
                   }}
@@ -77,18 +67,9 @@ export default function Header() {
                   M MANI & CO
                 </span>
                 <span
-                  className={`uppercase font-semibold tracking-[0.16em] transition-all duration-200 ${isScrolled
-                    ? 'text-xs md:text-sm text-primary-700'
-                    : 'text-sm md:text-base text-white/90'
-                    }`}
+                  className="text-[10px] md:text-xs uppercase font-semibold tracking-[0.16em] text-primary-700"
                 >
                   Chartered Accountants
-                </span>
-                <span
-                  className={`hidden sm:block text-[11px] font-medium transition-all duration-200 ${isScrolled ? 'text-neutral-500' : 'text-white/80'
-                    }`}
-                >
-                  ICAI Registered · Bengaluru
                 </span>
               </div>
             </div>
@@ -104,9 +85,7 @@ export default function Header() {
                   href={item.href}
                   className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-200 border-b-2 ${isActive
                     ? 'text-accent border-accent font-semibold'
-                    : isScrolled
-                      ? 'text-primary-900 border-transparent hover:text-accent hover:border-accent'
-                      : 'text-white/90 border-transparent hover:text-white hover:border-accent'
+                    : 'text-primary-900 border-transparent hover:text-accent hover:border-accent'
                     }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -119,8 +98,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className={`md:hidden p-2 rounded-md transition-colors ${isScrolled ? 'text-primary-900 hover:bg-neutral-100' : 'text-white hover:bg-white/10'
-              }`}
+            className="md:hidden p-2 rounded-md transition-colors text-primary-900 hover:bg-neutral-100"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
