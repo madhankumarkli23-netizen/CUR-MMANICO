@@ -50,10 +50,11 @@ export default function Header() {
             style={{ gap: 0 }}
           >
             {/* CA Logo - Matching Full Text Block Height - Responsive */}
-            <div className="relative flex-shrink-0 flex items-center" style={{ 
+            <div className="relative flex-shrink-0 flex items-start" style={{ 
               width: 'clamp(60px, 12vw, 85px)', 
-              height: 'clamp(60px, 12vw, 85px)', 
-              marginRight: 'clamp(-8px, -1vw, -8px)'
+              height: 'clamp(70px, 14vw, 95px)', 
+              marginRight: 'clamp(-8px, -1vw, -8px)',
+              alignSelf: 'flex-start'
             }}>
               <img
                 src="/ca-india-logo.png"
@@ -63,7 +64,8 @@ export default function Header() {
                   display: 'block',
                   objectFit: 'contain',
                   width: '100%',
-                  height: '100%'
+                  height: '100%',
+                  objectPosition: 'top'
                 }}
               />
             </div>
