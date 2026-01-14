@@ -33,14 +33,9 @@ export const metadata: Metadata = {
   publisher: "M MANI & CO",
   metadataBase: new URL('https://cur-mmanico.vercel.app'),
   icons: {
-    icon: [
-      { url: '/ca-india-logo.png', type: 'image/png' },
-      { url: '/ca-india-logo.png', type: 'image/png', sizes: '32x32' },
-      { url: '/ca-india-logo.png', type: 'image/png', sizes: '16x16' },
-    ],
-    apple: [
-      { url: '/ca-india-logo.png', type: 'image/png' },
-    ],
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
   openGraph: {
     type: "website",
@@ -109,10 +104,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${sourceSerif.variable}`}>
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/ca-india-logo.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/ca-india-logo.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/ca-india-logo.png" />
-        <link rel="shortcut icon" href="/ca-india-logo.png" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" />
+        <link rel="shortcut icon" href="/icon.png" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
