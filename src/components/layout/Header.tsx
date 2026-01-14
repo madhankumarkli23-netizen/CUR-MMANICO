@@ -45,16 +45,15 @@ export default function Header() {
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-start group"
             aria-label="M MANI & CO Home"
-            style={{ gap: 0 }}
+            style={{ gap: 0, alignItems: 'flex-start' }}
           >
             {/* CA Logo - Matching Full Text Block Height - Responsive */}
-            <div className="relative flex-shrink-0 flex items-start" style={{ 
+            <div className="relative flex-shrink-0" style={{ 
               width: 'clamp(60px, 12vw, 85px)', 
               height: 'clamp(70px, 14vw, 95px)', 
-              marginRight: 'clamp(-8px, -1vw, -8px)',
-              alignSelf: 'flex-start'
+              marginRight: 'clamp(-8px, -1vw, -8px)'
             }}>
               <img
                 src="/ca-india-logo.png"
@@ -71,9 +70,10 @@ export default function Header() {
             </div>
 
             {/* Firm Name Stack - Tighter spacing - Responsive */}
-            <div className="flex flex-col justify-center leading-none" style={{ 
+            <div className="flex flex-col justify-start leading-none" style={{ 
               gap: '0.05rem', 
-              marginLeft: 'clamp(-6px, -1vw, -6px)'
+              marginLeft: 'clamp(-6px, -1vw, -6px)',
+              alignSelf: 'flex-start'
             }}>
               {/* Primary: M Mani & Co - Larger Size - Responsive */}
               <span
