@@ -33,7 +33,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative min-h-[95vh] w-full overflow-hidden flex items-center pb-24" style={{ minHeight: '-webkit-fill-available', paddingTop: 'calc(4.5rem + env(safe-area-inset-top, 0px))' }}>
+        <section className="relative min-h-[95vh] w-full overflow-hidden flex items-center pb-24" style={{ minHeight: '-webkit-fill-available', paddingTop: 'calc(4.75rem + env(safe-area-inset-top, 0px))' }}>
             {/* Enhanced Background with Rich Visual Design */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 {/* Base Gradient with Depth */}
