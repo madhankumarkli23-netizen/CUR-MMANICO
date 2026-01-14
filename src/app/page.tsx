@@ -1,15 +1,483 @@
+import Link from 'next/link';
 import Image from 'next/image';
+import {
+  FileText,
+  ReceiptIndianRupee,
+  ShieldCheck,
+  Calculator,
+  Building2,
+  Users,
+  TrendingUp,
+  ClipboardCheck,
+  ArrowRight,
+} from 'lucide-react';
+import Hero from '@/components/Hero';
+import ServiceCard from '@/components/ServiceCard';
+import UpdatesPreview from '@/components/home/UpdatesPreview';
+import InsightsPreview from '@/components/home/InsightsPreview';
+import StatsSection from '@/components/home/StatsSection';
+import ValueProposition from '@/components/home/ValueProposition';
+import ServiceGrid from '@/components/home/ServiceGrid';
+import Script from 'next/script';
+
+const practiceAreas = [
+  {
+    icon: FileText,
+    title: 'Income-tax compliance & advisory',
+    description: 'Comprehensive tax planning, return filing, and advisory services for individuals and entities.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    iconColor: 'text-blue-600',
+  },
+  {
+    icon: ReceiptIndianRupee,
+    title: 'GST compliance',
+    description: 'Registration, return filing, reconciliation, and advisory for goods and services tax matters.',
+    color: 'from-green-500 to-green-600',
+    bgColor: 'bg-green-50',
+    iconColor: 'text-green-600',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Audit & assurance',
+    description: 'Statutory, tax, and internal audit services maintaining regulatory compliance.',
+    color: 'from-purple-500 to-purple-600',
+    bgColor: 'bg-purple-50',
+    iconColor: 'text-purple-600',
+  },
+  {
+    icon: Calculator,
+    title: 'Accounting & MIS',
+    description: 'Bookkeeping, financial statements, and management information system support.',
+    color: 'from-orange-500 to-orange-600',
+    bgColor: 'bg-orange-50',
+    iconColor: 'text-orange-600',
+  },
+  {
+    icon: Building2,
+    title: 'ROC / Company law compliances',
+    description: 'Incorporation, annual filings, and ongoing corporate regulatory compliance.',
+    color: 'from-indigo-500 to-indigo-600',
+    bgColor: 'bg-indigo-50',
+    iconColor: 'text-indigo-600',
+  },
+  {
+    icon: Users,
+    title: 'Payroll & TDS compliance',
+    description: 'Payroll processing, tax deduction at source computation, and filing requirements.',
+    color: 'from-pink-500 to-pink-600',
+    bgColor: 'bg-pink-50',
+    iconColor: 'text-pink-600',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Business advisory',
+    description: 'Financial planning, budgeting, and strategic business guidance.',
+    color: 'from-teal-500 to-teal-600',
+    bgColor: 'bg-teal-50',
+    iconColor: 'text-teal-600',
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Internal controls & process review',
+    description: 'Assessment and enhancement of internal control systems and operational processes.',
+    color: 'from-cyan-500 to-cyan-600',
+    bgColor: 'bg-cyan-50',
+    iconColor: 'text-cyan-600',
+  },
+];
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <Image
-        src="/m-mani-logo-full.png"
-        alt="M MANI & CO"
-        width={500}
-        height={200}
-        className="object-contain"
-        priority
+    <div className="min-h-screen bg-neutral-50">
+      <Hero />
+
+      {/* Value Proposition */}
+      <ValueProposition />
+
+      {/* Practice Areas */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="section-heading">
+            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
+              <span className="text-sm font-semibold text-primary-800">Our Services</span>
+            </div>
+            <h2 className="section-title">
+              Professional Services
+            </h2>
+            <p className="section-subtitle">
+              Comprehensive professional services across direct taxation, indirect taxation (GST), audit and assurance, accounting, corporate compliance, and advisory domains. Serving clients in Bengaluru, Karnataka and across India.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {practiceAreas.map((area, index) => (
+              <ServiceCard
+                key={index}
+                title={area.title}
+                description={area.description}
+                icon={area.icon}
+                href="/services"
+              />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              View all services
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <StatsSection />
+      </section>
+
+      {/* Service Coverage Grid */}
+      <ServiceGrid />
+
+      {/* How Engagement Works */}
+      <section className="py-12 md:py-16 bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
+              <span className="text-sm font-semibold text-primary-800">Our Process</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
+              How Engagement Works
+            </h2>
+            <p className="text-lg text-neutral-700 max-w-2xl mx-auto">
+              A structured, transparent approach to professional service delivery
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                number: '1',
+                title: 'Initial Enquiry',
+                description: 'Submit your enquiry through our contact form, email, or WhatsApp. Share basic details about your requirements.'
+              },
+              {
+                number: '2',
+                title: 'Preliminary Discussion',
+                description: 'We assess the scope, our competence, independence, and any conflict considerations before proceeding.'
+              },
+              {
+                number: '3',
+                title: 'Engagement Letter',
+                description: 'Upon acceptance, we provide a formal engagement letter outlining scope, timeline, deliverables, and fee structure.'
+              },
+              {
+                number: '4',
+                title: 'Service Delivery',
+                description: 'Work is performed with regular communication, quality checks, and timely delivery of agreed outputs.'
+              }
+            ].map((step, index) => (
+              <div key={index} className="group relative">
+                <div className="bg-white rounded-xl p-6 border-2 border-neutral-200 shadow-sm hover:shadow-xl hover:border-primary-300 hover:-translate-y-2 transition-all duration-300 h-full relative overflow-hidden bg-gradient-to-br from-white to-neutral-50/30">
+                  {/* Enhanced gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-primary-50/0 to-transparent group-hover:from-primary-50/40 group-hover:via-primary-50/20 group-hover:to-transparent transition-all duration-300"></div>
+                  
+                  <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-primary-100 to-primary-50 border-2 border-primary-200 text-primary-700 flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:border-primary-400 transition-all duration-300">
+                    {step.number}
+                  </div>
+                  <h3 className="relative z-10 text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors duration-300" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>
+                    {step.title}
+                  </h3>
+                  <p className="relative z-10 text-sm text-neutral-600 leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.7' }}>
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-neutral-600 max-w-3xl mx-auto">
+              <strong>Note:</strong> Preliminary discussions or website enquiries do not constitute engagement acceptance or create any professional relationship. Services are provided subject to formal engagement terms.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Document Security & Confidentiality */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-4xl">
+          <div className="bg-gradient-to-br from-primary-50 via-primary-50/80 to-primary-100 rounded-2xl p-8 md:p-12 border-2 border-primary-200 shadow-xl">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary-700 flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary-900 mb-2" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                  Document Security & Confidentiality
+                </h2>
+                <p className="text-neutral-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.75' }}>
+                  All client information and documents are handled with strict confidentiality protocols in accordance with regulatory requirements and applicable guidelines.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-3 text-sm text-neutral-700">
+              <div className="flex items-start gap-2">
+                <span className="text-primary-700 font-bold">•</span>
+                <p>Access to client data is limited to engagement team members on a need-to-know basis</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary-700 font-bold">•</span>
+                <p>Physical and digital documents are stored securely with appropriate access controls</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary-700 font-bold">•</span>
+                <p>Confidentiality obligations continue beyond the term of engagement</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary-700 font-bold">•</span>
+                <p>We maintain regulatory compliance for data security and client privacy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regulatory Updates Preview */}
+      <UpdatesPreview />
+
+      {/* Insights Preview */}
+      <InsightsPreview />
+
+      {/* CTA Section */}
+      <section className="relative section-padding bg-primary-900 text-white overflow-hidden">
+        {/* Enhanced Background with Consistent Design */}
+        <div className="absolute inset-0 z-0">
+          {/* Base Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 via-primary-900 to-primary-950" />
+          
+          {/* Animated Gradient Orbs */}
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary-700/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary-800/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl"></div>
+          
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }}></div>
+          
+          {/* Subtle Shimmer */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+        </div>
+
+        <div className="container-custom text-center relative z-10">
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+            <span className="text-sm font-semibold text-white">Let&apos;s Connect</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.025em', lineHeight: '1.15' }}>
+            Need Professional Assistance?
+          </h2>
+          <p className="text-xl text-neutral-200 mb-10 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.75' }}>
+            For enquiries regarding tax, audit, accounting, or compliance matters, you may reach out to us.
+          </p>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center justify-center px-10 py-5 bg-white text-primary-900 rounded-lg hover:bg-neutral-100 active:bg-neutral-200 transition-all font-bold text-lg shadow-2xl touch-manipulation"
+            style={{ minHeight: '44px' }}
+          >
+            Get in Touch
+            <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Enhanced JSON-LD Schema for SEO */}
+      <Script
+        id="schema-local-business"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["AccountingService", "LocalBusiness", "ProfessionalService"],
+            "name": "M MANI & CO",
+            "alternateName": "M MANI & CO Chartered Accountants",
+            "legalName": "M MANI & CO",
+            "description": "Professional chartered accountancy firm providing comprehensive tax, audit, accounting, and compliance services in Bengaluru, Karnataka. Top CA firm in Bengaluru for income tax, GST, audit, and corporate compliance services.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "postalCode": "560102",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "12.9169",
+              "longitude": "77.6413"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Bengaluru",
+                "sameAs": "https://en.wikipedia.org/wiki/Bangalore"
+              },
+              {
+                "@type": "State",
+                "name": "Karnataka"
+              },
+              {
+                "@type": "Country",
+                "name": "India"
+              }
+            ],
+            "url": "https://manicoca.com",
+            "telephone": "+919632818089",
+            "email": "info@mmanico.com",
+            "priceRange": "$$",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            "serviceType": [
+              "Tax Compliance",
+              "Income Tax Services",
+              "GST Compliance",
+              "Audit Services",
+              "Statutory Audit",
+              "Tax Audit",
+              "Accounting Services",
+              "Corporate Compliance",
+              "ROC Compliance",
+              "TDS Compliance"
+            ],
+            "credential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "ICAI Registration",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "Institute of Chartered Accountants of India",
+                "url": "https://www.icai.org"
+              }
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Chartered Accountancy Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Income Tax Compliance & Advisory"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "GST Compliance Services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Audit & Assurance Services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Corporate & ROC Compliance"
+                  }
+                }
+              ]
+            },
+            "sameAs": [
+              "https://manicoca.com",
+              "https://g.page/m-mani-co"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "25"
+            }
+          })
+        }}
+      />
+      
+      {/* Organization Schema */}
+      <Script
+        id="schema-organization"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "M MANI & CO",
+            "legalName": "M MANI & CO",
+            "description": "Chartered Accountants firm providing professional services in taxation, audit, accounting, and compliance",
+            "url": "https://manicoca.com",
+            "logo": "https://manicoca.com/ca-india-logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Muji Square, 5th Floor, No. 164, 9th Main Road, HSR Layout",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "postalCode": "560102",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "12.9169",
+              "longitude": "77.6413"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+919632818089",
+              "contactType": "Customer Service",
+              "email": "info@mmanico.com",
+              "areaServed": "IN",
+              "availableLanguage": ["en", "hi"]
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "knowsAbout": [
+              "Tax Compliance",
+              "GST",
+              "Audit",
+              "Accounting",
+              "Corporate Compliance"
+            ]
+          })
+        }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <Script
+        id="schema-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://manicoca.com"
+              }
+            ]
+          })
+        }}
       />
     </div>
   );
