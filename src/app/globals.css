@@ -225,6 +225,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: none;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

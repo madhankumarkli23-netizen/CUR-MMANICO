@@ -110,6 +110,31 @@ export default function HomePage() {
     <div className="min-h-screen bg-neutral-50">
       <Hero />
 
+      <section className="bg-white">
+        <div className="container-custom py-10 md:py-12">
+          <div className="glass-card border border-primary-100/60 bg-gradient-to-r from-white via-primary-50/40 to-white px-6 py-6 md:px-8 md:py-7 shadow-lg">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <div className="section-badge mb-3">
+                  <span>ICAI Compliance Notice</span>
+                </div>
+                <p className="text-sm text-neutral-700 max-w-2xl">
+                  This website is maintained in accordance with ICAI guidelines and is for informational purposes only. Professional services are offered only through formal engagement.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/disclaimer" className="btn-secondary">
+                  Read Disclaimer
+                </Link>
+                <Link href="/terms" className="btn-secondary">
+                  Terms of Use
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Value Proposition */}
       <ValueProposition />
 
