@@ -13,8 +13,10 @@ const ServiceCard = ({ title, description, icon: Icon, href }: ServiceCardProps)
     return (
         <Link
             href={href}
-            className="group card card-hover p-7 flex flex-col items-start gap-5 hover:shadow-2xl hover:border-primary-300 hover:-translate-y-2 transition-all duration-200 relative overflow-hidden bg-gradient-to-br from-white via-white to-neutral-50/60 border-2"
+            className="group card card-hover glass-card p-7 flex flex-col items-start gap-5 hover:shadow-2xl hover:border-primary-300/70 hover:-translate-y-2 transition-all duration-200"
         >
+            <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-primary-100/70 via-white to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-gradient-to-br from-transparent via-primary-50/70 to-primary-100/50 opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
             {/* Enhanced gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-primary-50/0 to-transparent group-hover:from-primary-50/50 group-hover:via-primary-50/30 group-hover:to-transparent transition-all duration-200"></div>
             

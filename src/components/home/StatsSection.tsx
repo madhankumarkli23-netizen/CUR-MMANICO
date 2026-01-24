@@ -41,11 +41,13 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className="section-padding bg-gradient-to-b from-neutral-50 to-white relative">
+    <section className="section-padding bg-gradient-to-b from-neutral-50 via-white to-white relative overflow-hidden">
+      <div className="absolute top-10 right-0 h-72 w-72 rounded-full bg-primary-50/70 blur-3xl" />
+      <div className="absolute bottom-10 left-10 h-64 w-64 rounded-full bg-primary-100/40 blur-3xl" />
       <div className="container-custom relative z-10">
         <div className="section-heading">
-          <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-            <span className="text-sm font-semibold text-primary-800">Core Areas</span>
+          <div className="section-badge mb-4">
+            <span>Core Areas</span>
           </div>
           <h2 className="section-title">
             Core Service Areas
@@ -61,7 +63,7 @@ export default function StatsSection() {
             return (
               <div
                 key={index}
-                className={`group card card-hover p-9 text-center bg-gradient-to-br from-white via-white to-neutral-50/60 border-2 ${isVisible ? 'animate-fade-in' : 'opacity-0'}
+                className={`group card card-hover glass-card p-9 text-center hover:border-primary-300/70 ${isVisible ? 'animate-fade-in' : 'opacity-0'}
                   }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >

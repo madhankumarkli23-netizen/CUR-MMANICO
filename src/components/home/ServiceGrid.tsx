@@ -20,11 +20,13 @@ const services = [
 
 export default function ServiceGrid() {
     return (
-        <section className="section-padding bg-white">
-            <div className="container-custom">
+        <section className="section-padding bg-white relative overflow-hidden">
+            <div className="absolute -top-16 left-20 h-72 w-72 rounded-full bg-primary-50/60 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-primary-100/40 blur-3xl" />
+            <div className="container-custom relative z-10">
                 <div className="section-heading">
-                    <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-                        <span className="text-sm font-semibold text-primary-800">Service Coverage</span>
+                    <div className="section-badge mb-4">
+                        <span>Service Coverage</span>
                     </div>
                     <h2 className="section-title">
                         Service Coverage
@@ -39,7 +41,7 @@ export default function ServiceGrid() {
                         <Link
                             key={index}
                             href={service.href}
-                            className="card p-6 text-center hover:shadow-2xl hover:border-primary-400 hover:-translate-y-2 transition-all duration-200 group relative overflow-hidden bg-gradient-to-br from-white via-white to-neutral-50/40 border-2"
+                            className="card glass-card p-6 text-center hover:shadow-2xl hover:border-primary-400/70 hover:-translate-y-2 transition-all duration-200 group"
                         >
                             {/* Enhanced background gradient on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-primary-50/0 to-transparent group-hover:from-primary-50/70 group-hover:via-primary-50/40 group-hover:to-transparent transition-all duration-200"></div>

@@ -117,8 +117,8 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="section-heading">
-            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary-800">Our Services</span>
+            <div className="section-badge mb-4">
+              <span>Our Services</span>
             </div>
             <h2 className="section-title">
               Professional Services
@@ -159,11 +159,13 @@ export default function HomePage() {
       <ServiceGrid />
 
       {/* How Engagement Works */}
-      <section className="py-12 md:py-16 bg-neutral-50">
-        <div className="container-custom">
+      <section className="py-12 md:py-16 bg-neutral-50 relative overflow-hidden">
+        <div className="absolute -top-12 right-10 h-72 w-72 rounded-full bg-primary-50/70 blur-3xl" />
+        <div className="absolute bottom-0 left-10 h-64 w-64 rounded-full bg-primary-100/40 blur-3xl" />
+        <div className="container-custom relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-block px-4 py-2 bg-primary-100 border border-primary-200 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary-800">Our Process</span>
+            <div className="section-badge mb-4">
+              <span>Our Process</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
               How Engagement Works
@@ -197,7 +199,8 @@ export default function HomePage() {
               }
             ].map((step, index) => (
               <div key={index} className="group relative">
-                <div className="bg-white rounded-xl p-6 border-2 border-neutral-200 shadow-sm hover:shadow-xl hover:border-primary-300 hover:-translate-y-2 transition-all duration-300 h-full relative overflow-hidden bg-gradient-to-br from-white to-neutral-50/30">
+                <div className="glass-card p-6 border-2 border-neutral-200/70 shadow-sm hover:shadow-xl hover:border-primary-300/70 hover:-translate-y-2 transition-all duration-300 h-full bg-gradient-to-br from-white via-white to-neutral-50/30">
+                  <div className="absolute -top-16 -right-10 h-32 w-32 rounded-full bg-gradient-to-br from-primary-100/60 via-white to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
                   {/* Enhanced gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-primary-50/0 to-transparent group-hover:from-primary-50/40 group-hover:via-primary-50/20 group-hover:to-transparent transition-all duration-300"></div>
                   
