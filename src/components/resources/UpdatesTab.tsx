@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, ExternalLink, Filter } from 'lucide-react';
+import Image from 'next/image';
+import { ExternalLink, Filter } from 'lucide-react';
 
 const allUpdates = [
   { title: 'Extension of due date for filing Income Tax Returns for AY 2025-26', source: 'CBDT', date: '2025-12-20', excerpt: 'The Central Board of Direct Taxes has extended the due date for filing income tax returns for assessment year 2025-26 for certain categories of taxpayers.', link: 'https://www.incometax.gov.in', category: 'Income Tax' },
@@ -42,13 +43,19 @@ export default function UpdatesTab() {
       {/* Search and Filter */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" aria-hidden="true" />
+          <Image
+            src="/ca-logo.png"
+            alt="CA logo"
+            width={20}
+            height={20}
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5"
+          />
           <input
             type="text"
             placeholder="Search updates..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+            className="w-full pl-11 pr-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
           />
         </div>
         <div className="flex items-center gap-2">
