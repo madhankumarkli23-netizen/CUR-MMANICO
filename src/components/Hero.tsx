@@ -146,7 +146,7 @@ const Hero = () => {
                                 className="block bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent animate-fade-in-up"
                                 style={{ animationDelay: '0.1s' }}
                             >
-                                Services in Bengaluru
+                                CA in Bengaluru
                             </span>
                             <span 
                                 className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/85 mt-3 animate-fade-in-up"
