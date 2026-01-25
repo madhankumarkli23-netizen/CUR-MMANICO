@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     default: "M Mani & Co | Chartered Accountants in Bengaluru",
     template: "%s | M Mani & Co",
   },
-  description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. ICAI compliant, informational only.",
-  keywords: "chartered accountants Bengaluru, CA firm Bengaluru Bangalore, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka, chartered accountancy firm",
+  description: "M Mani & Co is a professional chartered accountancy firm in Bengaluru (Bangalore), Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services. ICAI compliant, informational only.",
+  keywords: "chartered accountants Bengaluru, CA in Bengaluru, CA in Bangalore, CA firm Bengaluru Bangalore, tax compliance, GST, audit services, income tax, corporate compliance, accounting services Karnataka, chartered accountancy firm",
   authors: [{ name: "M MANI & CO" }],
   creator: "M MANI & CO",
   publisher: "M MANI & CO",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     siteName: "M MANI & CO - Chartered Accountants",
     title: "M Mani & Co | Chartered Accountants in Bengaluru",
-    description: "Professional chartered accountancy firm in Bengaluru, Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.",
+    description: "M Mani & Co is a professional chartered accountancy firm in Bengaluru (Bangalore), Karnataka. Comprehensive income tax compliance, GST, statutory audit, accounting, and corporate regulatory services.",
     url: siteUrl,
     // Add Open Graph image when available
     // images: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "M Mani & Co | Chartered Accountants in Bengaluru",
-    description: "Professional tax, audit, accounting, and compliance services in Bengaluru, Karnataka",
+    description: "M Mani & Co provides professional tax, audit, accounting, and compliance services in Bengaluru (Bangalore), Karnataka",
     // Add Twitter image when available
     // images: [`${siteUrl}/twitter-image.jpg`],
   },

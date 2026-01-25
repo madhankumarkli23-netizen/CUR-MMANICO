@@ -157,7 +157,7 @@ const Hero = () => {
                         </h1>
 
                         <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.75', fontWeight: 400 }}>
-                            Leading chartered accountants firm in Bengaluru offering comprehensive tax compliance, GST services, audit, accounting, and corporate compliance solutions for businesses and individuals across Karnataka and India. We assist clients in meeting their statutory obligations and financial reporting requirements.
+                            M Mani &amp; Co is a leading CA firm in Bengaluru (Bangalore) offering comprehensive tax compliance, GST services, audit, accounting, and corporate compliance solutions for businesses and individuals across Karnataka and India. We assist clients in meeting their statutory obligations and financial reporting requirements.
                         </p>
 
                         {/* Enhanced Service Cards with Stagger Animation - Now Clickable */}
