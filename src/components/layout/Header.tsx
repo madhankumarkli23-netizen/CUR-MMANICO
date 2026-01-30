@@ -41,45 +41,71 @@ export default function Header() {
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1.5rem', alignItems: 'center' }}>
+        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1.5rem', alignItems: 'center', width: '100%' }}>
           {/* Logo - Clean Brand Block */}
           <Link
             href="/"
-            className="flex items-center group flex-shrink-0"
+            className="group flex-shrink-0"
             aria-label="M MANI & CO Home"
-            style={{ gap: 0, alignItems: 'center', maxWidth: 'calc(100% - 250px)' }}
+            style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              gap: 0,
+              columnGap: 0,
+              rowGap: 0,
+              maxWidth: 'calc(100% - 250px)',
+              height: '100%',
+              margin: 0,
+              padding: 0
+            }}
           >
-            {/* CA Logo - Matching Full Text Block Height - Responsive */}
-            <div className="relative flex-shrink-0 flex items-center" style={{ 
+            {/* CA Logo - Original size, no gap, directly adjacent to text */}
+            <div style={{ 
               width: 'clamp(60px, 12vw, 85px)', 
               height: 'clamp(60px, 12vw, 85px)', 
-              marginRight: 'clamp(-8px, -1vw, -8px)',
-              alignSelf: 'center'
+              margin: 0,
+              padding: 0,
+              marginRight: '-6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              flexShrink: 0,
+              overflow: 'hidden'
             }}>
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
-                className="w-full h-full object-contain"
                 style={{ 
                   display: 'block',
                   objectFit: 'contain',
+                  objectPosition: 'right center',
                   width: '100%',
-                  height: '100%'
+                  height: '100%',
+                  margin: 0,
+                  padding: 0,
+                  marginRight: 0
                 }}
               />
             </div>
 
-            {/* Firm Name Stack - Tighter spacing - Responsive */}
-            <div className="flex flex-col justify-center leading-none flex-shrink-0" style={{ 
-              gap: '0.05rem', 
-              marginLeft: 'clamp(-6px, -1vw, -6px)',
-              alignSelf: 'center'
+            {/* Firm Name Stack - No gap, directly adjacent to logo */}
+            <div style={{ 
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              gap: '0.05rem',
+              margin: 0,
+              padding: 0,
+              marginLeft: '-6px',
+              height: '100%',
+              flexShrink: 0
             }}>
               {/* Primary: M Mani & Co - Larger Size - Responsive */}
               <span
                 className="font-bold text-primary-900"
                 style={{
-                  fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif',
+                  fontFamily: 'var(--font-serif-pro), Georgia, serif',
                   fontWeight: 700,
                   letterSpacing: '-0.01em',
                   lineHeight: '1.1',
@@ -87,9 +113,7 @@ export default function Header() {
                   padding: 0,
                   color: '#004992',
                   fontSize: 'clamp(1.25rem, 4vw, 2.25rem)',
-                  textRendering: 'optimizeLegibility',
-                  WebkitFontFeatureSettings: '"kern" 1',
-                  fontFeatureSettings: '"kern" 1'
+                  display: 'block'
                 }}
               >
                 M Mani & Co
@@ -98,7 +122,7 @@ export default function Header() {
               <span
                 className="uppercase text-primary-700"
                 style={{
-                  fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif',
+                  fontFamily: 'var(--font-inter), sans-serif',
                   fontWeight: 600,
                   letterSpacing: '0.12em',
                   lineHeight: '1.2',
@@ -106,9 +130,7 @@ export default function Header() {
                   padding: 0,
                   marginTop: '0.05rem',
                   fontSize: 'clamp(0.45em, 1.2vw, 0.5em)',
-                  textRendering: 'optimizeLegibility',
-                  WebkitFontFeatureSettings: '"kern" 1',
-                  fontFeatureSettings: '"kern" 1'
+                  display: 'block'
                 }}
               >
                 Chartered Accountants
