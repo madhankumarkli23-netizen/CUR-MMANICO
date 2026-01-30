@@ -53,10 +53,10 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col justify-center -space-y-0.5">
-                <span className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                <span className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif', letterSpacing: '-0.02em', lineHeight: '1.2', textRendering: 'optimizeLegibility' }}>
                   M MANI & CO
                 </span>
-                <span className="text-sm text-neutral-300 font-semibold uppercase" style={{ fontFamily: 'var(--font-inter), sans-serif', letterSpacing: '0.1em', lineHeight: '1.3' }}>
+                <span className="text-sm text-neutral-300 font-semibold uppercase" style={{ fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif', letterSpacing: '0.1em', lineHeight: '1.3', textRendering: 'optimizeLegibility' }}>
                   Chartered Accountants
                 </span>
               </div>
@@ -111,7 +111,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>Quick Links</h3>
+            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3', textRendering: 'optimizeLegibility' }}>Quick Links</h3>
             <ul className="space-y-2">
               {footerLinks.pages.map((link) => (
                 <li key={link.name}>
@@ -128,7 +128,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3' }}>Legal</h3>
+            <h3 className="text-white font-bold mb-4" style={{ fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif', letterSpacing: '-0.015em', lineHeight: '1.3', textRendering: 'optimizeLegibility' }}>Legal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>

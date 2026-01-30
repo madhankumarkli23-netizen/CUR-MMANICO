@@ -138,7 +138,7 @@ const Hero = () => {
                         </div>
 
                         {/* Enhanced Headline with Gradient and Animation - Optimized */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.03em' }}>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]" style={{ fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif', letterSpacing: '-0.03em', textRendering: 'optimizeLegibility' }}>
                             <span className="block animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
                                 Professional Chartered Accountancy
                             </span>
@@ -150,13 +150,13 @@ const Hero = () => {
                             </span>
                             <span 
                                 className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/85 mt-3 animate-fade-in-up"
-                                style={{ animationDelay: '0.15s', fontFamily: 'var(--font-inter), sans-serif', letterSpacing: '-0.01em', lineHeight: '1.3' }}
+                                style={{ animationDelay: '0.15s', fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif', letterSpacing: '-0.01em', lineHeight: '1.3', textRendering: 'optimizeLegibility' }}
                             >
                                 Tax, Audit, Accounting & Compliance
                             </span>
                         </h1>
 
-                        <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.75', fontWeight: 400 }}>
+                        <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl" style={{ fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif', lineHeight: '1.75', fontWeight: 400, textRendering: 'optimizeLegibility' }}>
                             Leading chartered accountants firm in Bengaluru offering comprehensive tax compliance, GST services, audit, accounting, and corporate compliance solutions for businesses and individuals across Karnataka and India. We assist clients in meeting their statutory obligations and financial reporting requirements.
                         </p>
 
@@ -189,8 +189,8 @@ const Hero = () => {
                                         
                                         {/* Content */}
                                         <div className="flex-1 z-10">
-                                            <p className="text-white font-bold text-base md:text-lg mb-1.5 group-hover:text-accent transition-colors duration-200" style={{ fontFamily: 'var(--font-serif-pro), Georgia, serif', letterSpacing: '-0.01em', lineHeight: '1.3' }}>{item.title}</p>
-                                            <p className="text-white/75 text-xs md:text-sm leading-relaxed group-hover:text-white/95 transition-colors duration-200" style={{ fontFamily: 'var(--font-inter), sans-serif', lineHeight: '1.6' }}>{item.desc}</p>
+                                            <p className="text-white font-bold text-base md:text-lg mb-1.5 group-hover:text-accent transition-colors duration-200" style={{ fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif', letterSpacing: '-0.01em', lineHeight: '1.3', textRendering: 'optimizeLegibility' }}>{item.title}</p>
+                                            <p className="text-white/75 text-xs md:text-sm leading-relaxed group-hover:text-white/95 transition-colors duration-200" style={{ fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif', lineHeight: '1.6', textRendering: 'optimizeLegibility' }}>{item.desc}</p>
                                         </div>
                                         
                                         {/* Arrow indicator */}

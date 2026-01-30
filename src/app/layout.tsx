@@ -9,12 +9,18 @@ const inter = Inter({
   subsets: ["latin"],
   display: 'swap',
   variable: '--font-inter',
+  fallback: ['Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   display: 'swap',
   variable: '--font-playfair',
+  fallback: ['Times New Roman', 'Georgia', 'serif'],
+  adjustFontFallback: true,
+  preload: false,
 });
 
 const sourceSerif = Source_Serif_4({
@@ -22,6 +28,9 @@ const sourceSerif = Source_Serif_4({
   display: 'swap',
   variable: '--font-serif-pro',
   weight: ['400', '600', '700'],
+  fallback: ['Times New Roman', 'Georgia', 'serif'],
+  adjustFontFallback: true,
+  preload: true,
 });
 
 // SEO Configuration - Get site URL from environment variable
@@ -125,6 +134,28 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Windows font rendering optimization */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Windows font fallback optimization */
+            @supports (-ms-ime-align: auto) {
+              body {
+                font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+              }
+              h1, h2, h3, h4, h5, h6 {
+                font-family: 'Times New Roman', Georgia, serif;
+              }
+            }
+            /* Ensure fonts load with proper fallbacks */
+            body {
+              font-family: var(--font-inter), 'Segoe UI', Tahoma, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6 {
+              font-family: var(--font-serif-pro), 'Times New Roman', Georgia, serif;
+            }
+          `
+        }} />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Header />

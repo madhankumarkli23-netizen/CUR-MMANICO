@@ -79,14 +79,17 @@ export default function Header() {
               <span
                 className="font-bold text-primary-900"
                 style={{
-                  fontFamily: 'var(--font-serif-pro), Georgia, serif',
+                  fontFamily: 'var(--font-serif-pro), "Times New Roman", Georgia, serif',
                   fontWeight: 700,
                   letterSpacing: '-0.01em',
                   lineHeight: '1.1',
                   margin: 0,
                   padding: 0,
                   color: '#004992',
-                  fontSize: 'clamp(1.25rem, 4vw, 2.25rem)'
+                  fontSize: 'clamp(1.25rem, 4vw, 2.25rem)',
+                  textRendering: 'optimizeLegibility',
+                  WebkitFontFeatureSettings: '"kern" 1',
+                  fontFeatureSettings: '"kern" 1'
                 }}
               >
                 M Mani & Co
@@ -95,14 +98,17 @@ export default function Header() {
               <span
                 className="uppercase text-primary-700"
                 style={{
-                  fontFamily: 'var(--font-inter), sans-serif',
+                  fontFamily: 'var(--font-inter), "Segoe UI", Tahoma, Arial, sans-serif',
                   fontWeight: 600,
                   letterSpacing: '0.12em',
                   lineHeight: '1.2',
                   margin: 0,
                   padding: 0,
                   marginTop: '0.05rem',
-                  fontSize: 'clamp(0.45em, 1.2vw, 0.5em)'
+                  fontSize: 'clamp(0.45em, 1.2vw, 0.5em)',
+                  textRendering: 'optimizeLegibility',
+                  WebkitFontFeatureSettings: '"kern" 1',
+                  fontFeatureSettings: '"kern" 1'
                 }}
               >
                 Chartered Accountants
