@@ -43,13 +43,13 @@ export default function Header() {
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex min-h-[64px] items-center justify-between gap-4 md:min-h-[74px] lg:min-h-[80px]">
+        <div className="flex min-h-[64px] items-center justify-between gap-4 md:min-h-[86px] lg:min-h-[100px]">
           <Link
             href="/"
             className="group flex shrink-0 items-center gap-0"
             aria-label="M MANI & CO Home"
           >
-            <div className="-mr-1.5 flex h-12 w-12 shrink-0 items-center justify-center sm:-mr-2 sm:h-14 sm:w-14 md:-mr-2 md:h-16 md:w-16 lg:-mr-2.5 lg:h-20 lg:w-20">
+            <div className="-mr-1.5 flex h-12 w-12 shrink-0 items-center justify-center sm:-mr-2 sm:h-14 sm:w-14 md:-mr-2 md:h-20 md:w-20 lg:-mr-2.5 lg:h-24 lg:w-24">
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
