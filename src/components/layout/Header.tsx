@@ -49,7 +49,7 @@ export default function Header() {
             className="group flex shrink-0 items-center gap-0"
             aria-label="M MANI & CO Home"
           >
-            <div className="-mr-1 flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:-mr-1.5 md:h-16 md:w-16 lg:-mr-2 lg:h-20 lg:w-20">
+            <div className="-mr-1.5 flex h-12 w-12 shrink-0 items-center justify-center sm:-mr-2 sm:h-14 sm:w-14 md:-mr-2 md:h-16 md:w-16 lg:-mr-2.5 lg:h-20 lg:w-20">
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
@@ -57,7 +57,7 @@ export default function Header() {
               />
             </div>
 
-            <div className="-ml-1 flex min-w-0 flex-col justify-center leading-none md:-ml-1.5 lg:-ml-2">
+            <div className="-ml-1.5 flex min-w-0 flex-col justify-center leading-none sm:-ml-2 md:-ml-2 lg:-ml-2.5">
               <span
                 className="font-serif text-[1.35rem] font-bold tracking-tight text-primary-900 sm:text-[1.6rem] md:text-[1.85rem] lg:text-[2.05rem]"
               >
