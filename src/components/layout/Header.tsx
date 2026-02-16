@@ -34,119 +34,52 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white shadow-sm`}
+      className={`fixed left-0 right-0 top-0 z-50 bg-white/95 backdrop-blur transition-all duration-200 ${
+        isScrolled ? 'shadow-md' : 'shadow-sm'
+      }`}
       style={{
-        paddingTop: `calc(0.05rem + env(safe-area-inset-top, 0px))`,
-        paddingBottom: `0.05rem`,
+        paddingTop: 'calc(0.2rem + env(safe-area-inset-top, 0px))',
+        paddingBottom: '0.2rem',
       }}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex items-center justify-between" style={{ minHeight: 'clamp(60px, 12vw, 68px)', height: 'auto', gap: '1.5rem', alignItems: 'center', width: '100%' }}>
-          {/* Logo - Clean Brand Block */}
+        <div className="flex min-h-[64px] items-center justify-between gap-4 md:min-h-[74px] lg:min-h-[80px]">
           <Link
             href="/"
-            className="group flex-shrink-0"
+            className="group flex shrink-0 items-center"
             aria-label="M MANI & CO Home"
-            style={{ 
-              display: 'flex',
-              alignItems: 'center',
-              gap: 0,
-              columnGap: 0,
-              rowGap: 0,
-              maxWidth: 'calc(100% - 250px)',
-              height: '100%',
-              margin: 0,
-              padding: 0
-            }}
           >
-            {/* CA Logo - Original size, no gap, directly adjacent to text */}
-            <div style={{ 
-              width: 'clamp(60px, 12vw, 85px)', 
-              height: 'clamp(60px, 12vw, 85px)', 
-              margin: 0,
-              padding: 0,
-              marginRight: '-6px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              flexShrink: 0,
-              overflow: 'hidden'
-            }}>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20">
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
-                style={{ 
-                  display: 'block',
-                  objectFit: 'contain',
-                  objectPosition: 'right center',
-                  width: '100%',
-                  height: '100%',
-                  margin: 0,
-                  padding: 0,
-                  marginRight: 0
-                }}
+                className="h-full w-full object-contain object-center"
               />
             </div>
 
-            {/* Firm Name Stack - No gap, directly adjacent to logo */}
-            <div style={{ 
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              gap: '0.05rem',
-              margin: 0,
-              padding: 0,
-              marginLeft: '-6px',
-              height: '100%',
-              flexShrink: 0
-            }}>
-              {/* Primary: M Mani & Co - Larger Size - Responsive */}
+            <div className="ml-1 flex min-w-0 flex-col justify-center leading-none">
               <span
-                className="font-bold text-primary-900"
-                style={{
-                  fontFamily: 'var(--font-serif-pro), Georgia, serif',
-                  fontWeight: 700,
-                  letterSpacing: '-0.01em',
-                  lineHeight: '1.1',
-                  margin: 0,
-                  padding: 0,
-                  color: '#004992',
-                  fontSize: 'clamp(1.25rem, 4vw, 2.25rem)',
-                  display: 'block'
-                }}
+                className="font-serif text-[1.35rem] font-bold tracking-tight text-primary-900 sm:text-[1.6rem] md:text-[1.85rem] lg:text-[2.05rem]"
               >
                 M Mani & Co
               </span>
-              {/* Secondary: Chartered Accountants - Tighter spacing - Responsive */}
               <span
-                className="uppercase text-primary-700"
-                style={{
-                  fontFamily: 'var(--font-inter), sans-serif',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  lineHeight: '1.2',
-                  margin: 0,
-                  padding: 0,
-                  marginTop: '0.05rem',
-                  fontSize: 'clamp(0.45em, 1.2vw, 0.5em)',
-                  display: 'block'
-                }}
+                className="mt-0.5 whitespace-nowrap font-sans text-[0.5rem] font-semibold uppercase tracking-[0.16em] text-primary-700 sm:text-[0.58rem] md:text-[0.62rem] lg:text-[0.68rem]"
               >
                 Chartered Accountants
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 flex-shrink-0" style={{ alignItems: 'center' }}>
+          <div className="hidden shrink-0 items-center space-x-1 md:flex lg:space-x-2">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-lg touch-manipulation ${isActive
+                  className={`relative rounded-lg px-4 py-2.5 text-[0.9rem] font-medium transition-all duration-200 touch-manipulation lg:px-5 ${
+                    isActive
                     ? 'text-white bg-primary-700 font-semibold shadow-md'
                     : 'text-primary-900 hover:text-primary-700 hover:bg-primary-50 active:text-primary-800 active:bg-primary-100'
                     }`}
@@ -159,10 +92,9 @@ export default function Header() {
             })}
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-3 rounded-md transition-colors text-primary-900 hover:bg-neutral-100 touch-manipulation flex items-center justify-center"
+            className="flex items-center justify-center rounded-md p-3 text-primary-900 transition-colors hover:bg-neutral-100 touch-manipulation md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -176,7 +108,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 animate-slide-down">
             <div className="flex flex-col space-y-2 mt-4">

@@ -646,15 +646,25 @@ button {
 }
 
 /* Mobile-Specific Touch Targets */
-/* Ensure all interactive elements meet minimum touch target size (44x44px) */
+/* Ensure all interactive elements meet minimum touch target size (44x44px) on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 button,
 a,
 input,
 select,
 textarea,
 [role="button"] {
-  min-height: 44px;
-  min-width: 44px;
   /* Better touch feedback */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   tap-highlight-color: rgba(0, 0, 0, 0.1);
@@ -679,9 +689,9 @@ textarea,
   }
 }
 
-/* Windows Chrome/Edge font rendering optimization */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  * {
+/* Desktop kerning optimization */
+@media (min-width: 769px) {
+  body {
     -webkit-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
   }
@@ -756,33 +766,6 @@ textarea {
   border-radius: 0.375rem; /* 6px - consistent across all devices */
 }
 
-/* Windows font alignment fixes */
-* {
-  /* Ensure consistent baseline alignment */
-  vertical-align: baseline;
-}
-
-/* Global Windows font fallback enforcement */
-/* Note: Inline styles take precedence, so components with inline font-family 
-   should include Windows fallbacks directly in their style props */
-
-/* Ensure all headings with serif font have Windows fallbacks */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif-pro), 'Times New Roman', Georgia, serif;
-}
-
-/* Ensure all body text with inter font has Windows fallbacks */
-body, p, span, div, a, button, input, textarea, select, label {
-  font-family: var(--font-inter), 'Segoe UI', Tahoma, Arial, sans-serif;
-}
-
-/* Windows-specific font rendering for all text elements */
-h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label, li, td, th {
-  text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: "kern" 1;
-  font-feature-settings: "kern" 1;
-}
-
 /* Fix for Windows font rendering inconsistencies */
 @supports (font-variant-ligatures: common-ligatures) {
   body {
@@ -796,23 +779,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label,
   }
 }
 
-/* Windows-specific line-height normalization */
-@media screen {
-  body, p, span, div, a, button, input, textarea, select {
-    line-height: normal;
-  }
-  
-  /* Restore specific line-heights after normalization */
-  body {
-    line-height: 1.75;
-  }
-  
-  p {
-    line-height: 1.75;
-  }
-  
+/* Desktop typography guardrails */
+@media (min-width: 769px) {
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.15;
+    font-family: var(--font-serif-pro), 'Times New Roman', Georgia, serif;
+  }
+
+  p, li {
+    line-height: 1.75;
   }
 }
 

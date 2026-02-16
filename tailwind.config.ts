@@ -43,7 +43,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'serif'],
+        serif: ['var(--font-serif-pro)', 'serif'],
       },
       animation: {
         'fast-pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
