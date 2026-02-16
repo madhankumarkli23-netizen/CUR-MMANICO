@@ -46,18 +46,18 @@ export default function Header() {
         <div className="flex min-h-[64px] items-center justify-between gap-4 md:min-h-[74px] lg:min-h-[80px]">
           <Link
             href="/"
-            className="group flex shrink-0 items-center"
+            className="group flex shrink-0 items-center gap-0"
             aria-label="M MANI & CO Home"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20">
+            <div className="-mr-1 flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:-mr-1.5 md:h-16 md:w-16 lg:-mr-2 lg:h-20 lg:w-20">
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
-                className="h-full w-full object-contain object-center"
+                className="h-full w-full object-contain object-right"
               />
             </div>
 
-            <div className="ml-1 flex min-w-0 flex-col justify-center leading-none">
+            <div className="-ml-1 flex min-w-0 flex-col justify-center leading-none md:-ml-1.5 lg:-ml-2">
               <span
                 className="font-serif text-[1.35rem] font-bold tracking-tight text-primary-900 sm:text-[1.6rem] md:text-[1.85rem] lg:text-[2.05rem]"
               >
