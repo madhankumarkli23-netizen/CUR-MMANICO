@@ -49,7 +49,7 @@ export default function Header() {
             className="group flex min-w-0 flex-1 items-center gap-0 md:flex-none md:shrink-0"
             aria-label="M MANI & CO Home"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:-mr-2 md:h-20 md:w-20 lg:-mr-2.5 lg:h-24 lg:w-24">
+            <div className="-mr-1.5 flex h-12 w-12 shrink-0 items-center justify-center sm:-mr-2 sm:h-14 sm:w-14 md:-mr-2 md:h-20 md:w-20 lg:-mr-2.5 lg:h-24 lg:w-24">
               <img
                 src="/ca-india-logo.png"
                 alt="CA Logo"
@@ -57,14 +57,14 @@ export default function Header() {
               />
             </div>
 
-            <div className="ml-0.5 flex min-w-0 flex-col justify-center leading-none sm:ml-0 md:-ml-2 lg:-ml-2.5">
+            <div className="-ml-1 flex min-w-0 flex-col justify-center leading-none sm:-ml-1.5 md:-ml-2 lg:-ml-2.5">
               <span
-                className="font-serif text-[1.18rem] font-bold tracking-tight text-primary-900 sm:text-[1.32rem] md:text-[1.85rem] lg:text-[2.05rem]"
+                className="whitespace-nowrap font-serif text-[1.2rem] font-bold tracking-[-0.03em] text-primary-900 sm:text-[1.34rem] md:text-[1.85rem] md:tracking-tight lg:text-[2.05rem]"
               >
                 M Mani & Co
               </span>
               <span
-                className="mt-0.5 whitespace-nowrap font-sans text-[0.47rem] font-semibold uppercase tracking-[0.14em] text-primary-700 sm:text-[0.54rem] sm:tracking-[0.15em] md:text-[0.62rem] md:tracking-[0.16em] lg:text-[0.68rem]"
+                className="mt-0.5 whitespace-nowrap font-sans text-[0.47rem] font-semibold uppercase tracking-[0.12em] text-primary-700 sm:text-[0.54rem] sm:tracking-[0.13em] md:text-[0.62rem] md:tracking-[0.16em] lg:text-[0.68rem]"
               >
                 Chartered Accountants
               </span>
